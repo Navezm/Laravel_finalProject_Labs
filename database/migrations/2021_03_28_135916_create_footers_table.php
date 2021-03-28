@@ -17,7 +17,6 @@ class CreateFootersTable extends Migration
             $table->id();
             $table->string('span1');
             $table->string('span2');
-            $table->string('span3');
             $table->string('url');
             $table->timestamps();
         });

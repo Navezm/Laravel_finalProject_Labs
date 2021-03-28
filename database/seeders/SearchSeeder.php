@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class SearchSeeder extends Seeder
 {
@@ -13,6 +14,11 @@ class SearchSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('searches')->insert([
+            [
+                'icon' => 'flaticon-026-search',
+                'placeholder' => 'Search',
+            ],
+        ]);
     }
 }

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class FooterSeeder extends Seeder
 {
@@ -13,6 +14,12 @@ class FooterSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('footers')->insert([
+            [
+                'span1' => '2017 All rights reserved. Designed by ',
+                'span2' => 'Colorlib',
+                'url' => 'https://colorlib.com',
+            ],
+        ]);
     }
 }

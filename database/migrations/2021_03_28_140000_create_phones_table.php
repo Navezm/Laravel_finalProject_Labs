@@ -18,6 +18,7 @@ class CreatePhonesTable extends Migration
             $table->string('title', 200);
             $table->string('src');
             $table->string('btn', 150);
+            $table->string('btnLink', 200);
             $table->timestamps();
         });
     }

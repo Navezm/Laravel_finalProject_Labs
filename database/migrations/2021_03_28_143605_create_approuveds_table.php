@@ -16,7 +16,7 @@ class CreateApprouvedsTable extends Migration
         Schema::create('approuveds', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('worker_id');
-            $table->foreign('worker_id')->references('id')->on('workers')->onDelete('cascade');
+            $table->foreign('worker_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

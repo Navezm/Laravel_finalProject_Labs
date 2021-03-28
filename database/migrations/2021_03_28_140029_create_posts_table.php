@@ -19,7 +19,7 @@ class CreatePostsTable extends Migration
             $table->string('src');
             $table->text('content');
             $table->unsignedBigInteger('author_id')->nullable();
-            $table->foreign('author_id')->references('id')->on('workers')->onDelete('set null');
+            $table->foreign('author_id')->references('id')->on('users')->onDelete('set null');
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->boolean('approuved');

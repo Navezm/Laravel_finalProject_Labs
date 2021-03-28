@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ApprouvedSeeder extends Seeder
 {
@@ -13,6 +14,16 @@ class ApprouvedSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('approuveds')->insert([
+            [
+                'worker_id' => 1
+            ],
+            [
+                'worker_id' => 2
+            ],
+            [
+                'worker_id' => 3
+            ]
+        ]);
     }
 }

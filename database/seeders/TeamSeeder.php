@@ -14,7 +14,7 @@ class TeamSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('testimonials')->insert([
+        DB::table('teams')->insert([
             [
                 'title' => 'What our clients say',
             ],

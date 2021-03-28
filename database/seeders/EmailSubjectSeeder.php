@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class EmailSubjectSeeder extends Seeder
 {
@@ -13,6 +14,16 @@ class EmailSubjectSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('email_subjects')->insert([
+            [
+                'subject' => 'Quotation',
+            ],
+            [
+                'subject' => 'Question about our services',
+            ],
+            [
+                'subject' => 'Query',
+            ],
+        ]);
     }
 }

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class BlogSeeder extends Seeder
 {
@@ -13,6 +14,11 @@ class BlogSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('blogs')->insert([
+            [
+                'span1' => 'Comments',
+                'span2' => 'Leave a comment',
+            ],
+        ]);
     }
 }

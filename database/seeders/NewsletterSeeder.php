@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class NewsletterSeeder extends Seeder
 {
@@ -13,6 +14,12 @@ class NewsletterSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('newsletters')->insert([
+            [
+                'title' => 'Newsletter',
+                'placeholder' => 'Your e-mail here',
+                'btn' => 'Newsletter',
+            ],
+        ]);
     }
 }
