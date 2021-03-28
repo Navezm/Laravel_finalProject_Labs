@@ -16,3 +16,24 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/services', function(){
+    return view('pages.services');
+});
+
+Route::get('/contact', function(){
+    return view('pages.contact');
+});
+
+Route::get('/blog', function(){
+    return view('pages.blog');
+});
+
+Route::get('/blog-post', function(){
+    return view('pages.blog-post');
+});
+Auth::routes();
+
+Route::get('/home', function() {
+    return view('home');
+})->name('home')->middleware('auth');
