@@ -1,17 +1,19 @@
 <!-- Header section -->
 <header class="header-section">
     <div class="logo">
-        <img src="img/logo.png" alt=""><!-- Logo -->
+        <img src="{{asset('img/'.$logo->src)}}" alt=""><!-- Logo -->
     </div>
     <!-- Navigation -->
     <div class="responsive"><i class="fa fa-bars"></i></div>
     <nav>
         <ul class="menu-list">
-            <li class="active"><a href="home.html">Home</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="elements.html">Elements</a></li>
+            @foreach ($navs as $item)
+                @if ($item->link === "home")
+                    <li class="{{Route::getCurrentRoute()->uri()== '/' ? 'active' : ''}}"><a class="text-capitalize" href="/">{{$item->link}}</a></li>
+                @else
+                    <li class="{{Route::getCurrentRoute()->uri()== $item->link? 'active' : ''}}"><a class="text-capitalize" href="/{{$item->link}}">{{$item->link}}</a></li>
+                @endif
+            @endforeach
         </ul>
     </nav>
 </header>

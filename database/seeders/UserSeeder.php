@@ -37,9 +37,29 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('test-test')
             ],
             [
-                'name' => 'Burnam',
+                'name' => 'Burnham',
                 'surname' => 'Michael',
                 'email' => 'e@e',
+                'job_id' => '3',
+                'role_id' => '3',
+                'photo_id' => NULL,
+                'description' => 'Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.',
+                'password' => Hash::make('test-test')
+            ],
+            [
+                'name' => 'Haught',
+                'surname' => 'Nicole',
+                'email' => 'n@n',
+                'job_id' => '3',
+                'role_id' => '2',
+                'photo_id' => NULL,
+                'description' => 'Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.',
+                'password' => Hash::make('test-test')
+            ],
+            [
+                'name' => 'Law',
+                'surname' => 'Trafalgar D.',
+                'email' => 't@t',
                 'job_id' => '3',
                 'role_id' => '3',
                 'photo_id' => NULL,

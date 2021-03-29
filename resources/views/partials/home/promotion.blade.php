@@ -2,13 +2,19 @@
 <div class="promotion-section">
     <div class="container">
         <div class="row">
-            <div class="col-md-9">
-                <h2>Are you ready to stand out?</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est.</p>
+            <div class="col-md-7">
+                <h2>{{$stands->title}}</h2>
+                <p>{{$stands->paragraph}}</p>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-5">
                 <div class="promo-btn-area">
-                    <a href="" class="site-btn btn-2">Browse</a>
+                    <h2 class="text-center">{{$newsletters->title}}</h2>
+                    <!-- newsletter form -->
+                    <form class="nl-form d-flex" method="POST">
+                        @csrf
+                        <input type="text" placeholder="{{$newsletters->placeholder}}">
+                        <button type="submit" class="site-btn btn-2">{{$newsletters->btn}}</button>
+                    </form>
                 </div>
             </div>
         </div>

@@ -6,30 +6,25 @@
             <h2>Get in <span>the Lab</span> and  meet the team</h2>
         </div>
         <div class="row">
-            <!-- single member -->
-            <div class="col-sm-4">
-                <div class="member">
-                    <img src="{{asset('img/team/1.jpg')}}" alt="">
-                    <h2>Christinne Williams</h2>
-                    <h3>Project Manager</h3>
+            @foreach ($users->where('id', '!=', 1)->random(2) as $item)
+                <!-- single member -->
+                <div class="col-sm-4">
+                    <div class="member">
+                        <img src="{{asset('img/team/1.jpg')}}" alt="">
+                        <h2>{{$item->name}} {{$item->surname}}</h2>
+                        <h3>{{$item->jobs->name}}</h3>
+                    </div>
                 </div>
-            </div>
-            <!-- single member -->
-            <div class="col-sm-4">
-                <div class="member">
-                    <img src="{{asset('img/team/2.jpg')}}" alt="">
-                    <h2>Christinne Williams</h2>
-                    <h3>Junior developer</h3>
-                </div>
-            </div>
-            <!-- single member -->
-            <div class="col-sm-4">
-                <div class="member">
-                    <img src="{{asset('img/team/3.jpg')}}" alt="">
-                    <h2>Christinne Williams</h2>
-                    <h3>Digital designer</h3>
-                </div>
-            </div>
+                @if ($loop->iteration == 1)
+                    <div class="col-sm-4">
+                        <div class="member">
+                            <img src="{{asset('img/team/2.jpg')}}" alt="">
+                            <h2>{{$users[0]->name}} {{$users[0]->surname}}</h2>
+                            <h3>{{$users[0]->jobs->name}}</h3>
+                        </div>
+                    </div>
+                @endif
+            @endforeach
         </div>
     </div>
 </div>

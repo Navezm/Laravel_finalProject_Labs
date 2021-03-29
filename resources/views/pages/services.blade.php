@@ -5,5 +5,5 @@
     @include('partials.services.feature')
     @include('partials.services.blog')
     @include('partials.newsletter')
-    @include('partials.contact')
+    @include('partials.home.contact')
 @endsection
