@@ -5,17 +5,19 @@
     <div class="card-section">
         <div class="container">
             <div class="row">
-                <!-- single card -->
-                <div class="col-md-4 col-sm-6">
-                    <div class="lab-card">
-                        <div class="icon">
-                            <i class="flaticon-023-flask"></i>
+                @foreach ($collection as $item)
+                    <!-- single card -->
+                    <div class="col-md-4 col-sm-6">
+                        <div class="lab-card">
+                            <div class="icon">
+                                <i class="{{$item->icon}}"></i>
+                            </div>
+                            <h2>{{$item->title}}</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
                         </div>
-                        <h2>Get in the lab</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
                     </div>
-                </div>
-                <!-- single card -->
+                    <!-- single card -->
+                @endforeach
                 <div class="col-md-4 col-sm-6">
                     <div class="lab-card">
                         <div class="icon">

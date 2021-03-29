@@ -31,11 +31,14 @@ class DatabaseSeeder extends Seeder
             NewsletterSeeder::class,
             MapSeeder::class,
             CategorySeeder::class,
-            CategorySeeder::class,
             SearchSeeder::class,
             BlogSeeder::class,
             EmailSubjectSeeder::class,
+            IntroductionSeeder::class,
             LogoSeeder::class,
+            NavSeeder::class,
+            PostSeeder::class,
+            TagSeeder::class
         ]);
     }
 }

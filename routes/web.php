@@ -32,6 +32,7 @@ Route::get('/blog', function(){
 Route::get('/blog-post', function(){
     return view('pages.blog-post');
 });
+
 Auth::routes();
 
 Route::get('/home', function() {
