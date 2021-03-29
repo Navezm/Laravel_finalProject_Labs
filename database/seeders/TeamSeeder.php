@@ -16,7 +16,7 @@ class TeamSeeder extends Seeder
     {
         DB::table('teams')->insert([
             [
-                'title' => 'What our clients say',
+                'title' => 'Get in the Lab and meet the team',
             ],
         ]);
     }

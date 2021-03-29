@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\Footer;
+use App\Models\Logo;
+use App\Models\Map;
+use App\Models\Nav;
+use App\Models\Placeholder;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -14,7 +19,13 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        $navs = Nav::all();
+        $contacts = Contact::first();
+        $placeholders = Placeholder::first();
+        $logo = Logo::first();
+        $footers = Footer::first();
+        $map = Map::first();
+        return view('pages.contact', compact('navs', 'contacts', 'placeholders', 'logo', 'footers', 'map'));
     }
 
     /**

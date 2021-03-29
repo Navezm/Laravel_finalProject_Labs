@@ -10,6 +10,7 @@ use App\Models\Logo;
 use App\Models\Nav;
 use App\Models\Newsletter;
 use App\Models\Placeholder;
+use App\Models\Post;
 use App\Models\Search;
 use App\Models\Tag;
 use Illuminate\Http\Request;
@@ -32,7 +33,8 @@ class BlogController extends Controller
         $categories = Category::all();
         $searches = Search::first();
         $tags = Tag::all();
-        return view('pages.blog', compact('navs', 'contacts', 'placeholders', 'logo', 'footers', 'newsletters', 'categories', 'searches', 'tags'));
+        $posts = Post::paginate(3);
+        return view('pages.blog', compact('navs', 'contacts', 'placeholders', 'logo', 'footers', 'newsletters', 'categories', 'searches', 'tags', 'posts'));
     }
 
     /**
@@ -64,7 +66,7 @@ class BlogController extends Controller
      */
     public function show(Blog $blog)
     {
-        //
+        
     }
 
     /**

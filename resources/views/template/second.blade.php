@@ -38,10 +38,10 @@
 			<div class="overlay"></div>
 			<div class="container text-right">
 				<div class="page-info">
-					<h2 class="text-capitalize">{{Route::getCurrentRoute()->uri() == 'blog-post' ? 'Blog' : Route::getCurrentRoute()->uri()}}</h2>
+					<h2 class="text-capitalize">{{Route::getCurrentRoute()->uri() == 'post/{post}' ? 'Blog' : Route::getCurrentRoute()->uri()}}</h2>
 					<div class="page-links">
 						<a href="/">Home</a>
-						<span class="text-capitalize">{{Route::getCurrentRoute()->uri() == 'blog-post' ? 'Blog' : Route::getCurrentRoute()->uri()}}</span>
+						<span class="text-capitalize">{{Route::getCurrentRoute()->uri() == 'post/{post}' ? 'Blog' : Route::getCurrentRoute()->uri()}}</span>
 					</div>
 				</div>
 			</div>

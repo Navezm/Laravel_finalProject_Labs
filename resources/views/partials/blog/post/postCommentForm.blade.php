@@ -5,15 +5,15 @@
         <form class="form-class">
             <div class="row">
                 <div class="col-sm-6">
-                    <input type="text" name="name" placeholder="Your name">
+                    <input type="text" name="name" placeholder="{{$placeholders->name}}">
                 </div>
                 <div class="col-sm-6">
-                    <input type="text" name="email" placeholder="Your email">
+                    <input type="text" name="email" placeholder="{{$placeholders->email}}">
                 </div>
                 <div class="col-sm-12">
                     <input type="text" name="subject" placeholder="Subject">
-                    <textarea name="message" placeholder="Message"></textarea>
-                    <button class="site-btn">send</button>
+                    <textarea name="message" placeholder="{{$placeholders->message}}"></textarea>
+                    <button class="site-btn">{{$placeholders->btn}}</button>
                 </div>
             </div>
         </form>

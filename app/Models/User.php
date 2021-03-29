@@ -45,4 +45,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Job::class,'job_id');
     }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class,'author_id');
+    }
 }

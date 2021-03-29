@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ServicesController;
 use App\Models\Carrousel;
 use App\Models\Contact;
@@ -14,6 +16,7 @@ use App\Models\Placeholder;
 use App\Models\Resource;
 use App\Models\Services;
 use App\Models\Stand;
+use App\Models\Team;
 use App\Models\Testimonial;
 use App\Models\User;
 use App\Models\Witness;
@@ -31,6 +34,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Page Welcome
 Route::get('/', function () {
     $resources = Resource::all();
     $introductions = Introduction::first();
@@ -46,26 +50,17 @@ Route::get('/', function () {
     $footers = Footer::first();
     $logo = Logo::first();
     $navs = Nav::all();
-    return view('welcome',compact('resources', 'introductions', 'contacts', 'placeholders', 'carrousels', 'stands', 'newsletters', 'services', 'users', 'testimonials', 'witnesses', 'footers', 'logo', 'navs'));
+    $teams = Team::first();
+    return view('welcome',compact('resources', 'introductions', 'contacts', 'placeholders', 'carrousels', 'stands', 'newsletters', 'services', 'users', 'testimonials', 'witnesses', 'footers', 'logo', 'navs', 'teams'));
 });
 
+// Route Resource
 Route::resource('services', ServicesController::class);
 Route::resource('blog', BlogController::class);
+Route::resource('post', PostController::class);
+Route::resource('contact', ContactController::class);
 
-Route::get('/contact', function(){
-    $navs = Nav::all();
-    $contacts = Contact::first();
-    $placeholders = Placeholder::first();
-    $logo = Logo::first();
-    $footers = Footer::first();
-    $map = Map::first();
-    return view('pages.contact', compact('navs', 'contacts', 'placeholders', 'logo', 'footers', 'map'));
-});
-
-Route::get('/blog-post', function(){
-    return view('pages.blog-post');
-});
-
+// Facade Auth + AdminLTE
 Auth::routes();
 
 Route::get('/home', function() {

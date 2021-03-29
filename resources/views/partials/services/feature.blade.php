@@ -13,7 +13,7 @@
                         <div class="icon-box light left">
                             <div class="service-text">
                                 <h2>{{$item->title}}</h2>
-                                <p>{{$item->content}}</p>
+                                <p>{{Str::limit($item->content, 80)}}</p>
                             </div>
                             <div class="icon">
                                 <i class="{{$item->icon}}"></i>
@@ -38,7 +38,7 @@
                             </div>
                             <div class="service-text">
                                 <h2>{{$item->title}}</h2>
-                                <p>{{$item->content}}</p>
+                                <p>{{Str::limit($item->content, 80)}}</p>
                             </div>
                         </div>
                     @endif
