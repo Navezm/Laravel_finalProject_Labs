@@ -16,16 +16,25 @@ class TagSeeder extends Seeder
     {
         DB::table('tags')->insert([
             [
-                'name' => 'Food'
+                'name' => 'branding'
             ],
             [
-                'name' => 'Culture'
+                'name' => 'video'
             ],
             [
-                'name' => 'Tech'
+                'name' => 'identity'
             ],
             [
-                'name' => 'Europe'
+                'name' => 'design'
+            ],
+            [
+                'name' => 'inspiration'
+            ],
+            [
+                'name' => 'web design'
+            ],
+            [
+                'name' => 'photography'
             ]
         ]);
     }

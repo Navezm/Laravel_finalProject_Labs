@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ServicesController;
 use App\Models\Carrousel;
 use App\Models\Contact;
@@ -49,6 +50,7 @@ Route::get('/', function () {
 });
 
 Route::resource('services', ServicesController::class);
+Route::resource('blog', BlogController::class);
 
 Route::get('/contact', function(){
     $navs = Nav::all();
@@ -58,15 +60,6 @@ Route::get('/contact', function(){
     $footers = Footer::first();
     $map = Map::first();
     return view('pages.contact', compact('navs', 'contacts', 'placeholders', 'logo', 'footers', 'map'));
-});
-
-Route::get('/blog', function(){
-    $navs = Nav::all();
-    $contacts = Contact::first();
-    $placeholders = Placeholder::first();
-    $logo = Logo::first();
-    $footers = Footer::first();
-    return view('pages.blog', compact('navs', 'contacts', 'placeholders', 'logo', 'footers'));
 });
 
 Route::get('/blog-post', function(){

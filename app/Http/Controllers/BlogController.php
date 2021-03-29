@@ -3,6 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Category;
+use App\Models\Contact;
+use App\Models\Footer;
+use App\Models\Logo;
+use App\Models\Nav;
+use App\Models\Newsletter;
+use App\Models\Placeholder;
+use App\Models\Search;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -14,7 +23,16 @@ class BlogController extends Controller
      */
     public function index()
     {
-        //
+        $navs = Nav::all();
+        $contacts = Contact::first();
+        $placeholders = Placeholder::first();
+        $logo = Logo::first();
+        $footers = Footer::first();
+        $newsletters = Newsletter::first();
+        $categories = Category::all();
+        $searches = Search::first();
+        $tags = Tag::all();
+        return view('pages.blog', compact('navs', 'contacts', 'placeholders', 'logo', 'footers', 'newsletters', 'categories', 'searches', 'tags'));
     }
 
     /**

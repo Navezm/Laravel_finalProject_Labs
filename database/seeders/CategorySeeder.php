@@ -16,26 +16,17 @@ class CategorySeeder extends Seeder
     {
         DB::table('categories')->insert([
             [
-                'name' => 'branding'
+                'name' => 'Food'
             ],
             [
-                'name' => 'video'
+                'name' => 'Culture'
             ],
             [
-                'name' => 'identity'
+                'name' => 'Tech'
             ],
             [
-                'name' => 'design'
-            ],
-            [
-                'name' => 'inspiration'
-            ],
-            [
-                'name' => 'web design'
-            ],
-            [
-                'name' => 'photography'
-            ],
+                'name' => 'Europe'
+            ]
         ]);
     }
 }

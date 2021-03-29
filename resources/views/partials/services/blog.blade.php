@@ -2,7 +2,7 @@
 <div class="services-card-section spad" id="cardSection">
     <div class="container">
         <div class="row">
-            @foreach ($posts->random(3) as $item)
+            @foreach ($lastPost as $item)
                 <!-- Single Card -->
                 <div class="col-md-4 col-sm-6">
                     <div class="sv-card">

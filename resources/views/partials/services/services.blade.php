@@ -20,7 +20,9 @@
                 </div>
             @endforeach
         </div>
-        {{-- {{  $pagination->fragment('service')->links('vendor.pagination.bootstrap-4') }} --}}
+        <div class="text-center">
+            {{$resources->fragment('service')->links('vendor.pagination.bootstrap-4')}}
+        </div>
     </div>
 </div>
 <!-- services section end -->

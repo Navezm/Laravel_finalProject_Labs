@@ -29,7 +29,7 @@ class ServicesController extends Controller
         $logo = Logo::first();
         $footers = Footer::first();
         $services = Services::first();
-        $resources = Resource::all();
+        $resources = Resource::paginate(9);
         $phones = Phone::first();
         $posts = Post::all();
         $newsletters = Newsletter::first();
@@ -37,7 +37,10 @@ class ServicesController extends Controller
         $lastId = $resources->last()->id;
         $lastServices = $resources->whereBetween('id', [($lastId-5),($lastId)]);
 
-        return view('pages.services', compact('navs', 'contacts', 'placeholders', 'logo', 'footers', 'services', 'resources', 'posts', 'newsletters', 'phones', 'lastServices'));
+        $lastPostId = $posts->last()->id;
+        $lastPost = $posts->whereBetween('id', [($lastPostId-2), ($lastPostId)]);
+
+        return view('pages.services', compact('navs', 'contacts', 'placeholders', 'logo', 'footers', 'services', 'resources', 'lastPost', 'newsletters', 'phones', 'lastServices'));
     }
 
     /**
