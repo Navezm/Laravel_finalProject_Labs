@@ -54,8 +54,8 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        $show = $post;
-        $paragraphs = explode('/', $show->content);
+        $show = Post::with('tags')->get();
+        $paragraphs = explode('/', $post->content);
         $footers = Footer::first();
         $logo = Logo::first();
         $navs = Nav::all();
@@ -64,7 +64,7 @@ class PostController extends Controller
         $searches = Search::first();
         $tags = Tag::all();
         $placeholders = Placeholder::first();
-        return view('pages.blog-post',compact('show', 'footers', 'logo', 'navs', 'newsletters', 'categories', 'searches', 'tags', 'placeholders', 'paragraphs'));
+        return view('pages.blog-post',compact('show', 'post', 'footers', 'logo', 'navs', 'newsletters', 'categories', 'searches', 'tags', 'placeholders', 'paragraphs'));
     }
 
     /**

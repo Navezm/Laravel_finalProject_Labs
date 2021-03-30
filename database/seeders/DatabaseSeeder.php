@@ -39,7 +39,8 @@ class DatabaseSeeder extends Seeder
             LogoSeeder::class,
             NavSeeder::class,
             PostSeeder::class,
-            TagSeeder::class
+            TagSeeder::class,
+            PostTagSeeder::class,
         ]);
     }
 }

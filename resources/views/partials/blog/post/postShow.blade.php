@@ -1,15 +1,26 @@
 <div class="post-thumbnail">
-    <img src="{{asset('img/'.$show->src)}}" alt="">
+    <img src="{{asset('img/'.$post->src)}}" alt="">
     <div class="post-date">
-        <h2>03</h2>
-        <h3>Nov 2017</h3>
+        @if ($post->created_at == NULL)
+            <h2>03</h2>
+            <h3>Nov 2017</h3>
+        @else
+            <h2></h2>
+            <h3></h3>
+        @endif
     </div>
 </div>
 <div class="post-content">
-    <h2 class="post-title">{{$show->title}}</h2>
+    <h2 class="post-title">{{$post->title}}</h2>
     <div class="post-meta">
-        <a href="">{{$show->authors->name}} {{$show->authors->surname}}</a>
-        <a href="">Design, Inspiration</a>
+        <a href="">{{$post->authors->name}} {{$post->authors->surname}}</a>
+            @foreach ($post->tags->pluck('name') as $item)
+                @if ($loop->iteration == 1)
+                    <a class="text-capitalize" href="">{{$item}}</a>
+                @else
+                    <a class="a_tag_style" href="">, {{$item}}</a>
+                @endif
+            @endforeach
         <a href="">2 Comments</a>
     </div>
     <p>{{$paragraphs[0]}}</p>

@@ -13,7 +13,7 @@ class CreateCommentPostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('comment_posts', function (Blueprint $table) {
+        Schema::create('comment_post', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('post_id');
             $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
