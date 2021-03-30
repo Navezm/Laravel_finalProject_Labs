@@ -50,4 +50,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class,'author_id');
     }
+
+    public function photos()
+    {
+        return $this->belongsTo(Picture::class,'photo_id');
+    }
 }

@@ -30,12 +30,13 @@ class ServicesController extends Controller
         $footers = Footer::first();
         $services = Services::first();
         $resources = Resource::paginate(9);
+        $resourcesAll = Resource::all();
         $phones = Phone::first();
         $posts = Post::all();
         $newsletters = Newsletter::first();
 
-        $lastId = $resources->last()->id;
-        $lastServices = $resources->whereBetween('id', [($lastId-5),($lastId)]);
+        $lastId = $resourcesAll->last()->id;
+        $lastServices = $resourcesAll->whereBetween('id', [($lastId-5),($lastId)]);
 
         $lastPostId = $posts->last()->id;
         $lastPost = $posts->whereBetween('id', [($lastPostId-2), ($lastPostId)]);

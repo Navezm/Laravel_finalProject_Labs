@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
                 'email' => 'a@a',
                 'job_id' => '1',
                 'role_id' => '1',
-                'photo_id' => NULL,
+                'photo_id' => 3,
                 'description' => 'Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.',
                 'password' => Hash::make('test-test')
             ],
@@ -32,7 +32,7 @@ class UserSeeder extends Seeder
                 'email' => 'z@z',
                 'job_id' => '2',
                 'role_id' => '2',
-                'photo_id' => NULL,
+                'photo_id' => 4,
                 'description' => 'Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.',
                 'password' => Hash::make('test-test')
             ],
@@ -42,7 +42,7 @@ class UserSeeder extends Seeder
                 'email' => 'e@e',
                 'job_id' => '3',
                 'role_id' => '3',
-                'photo_id' => NULL,
+                'photo_id' => 2,
                 'description' => 'Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.',
                 'password' => Hash::make('test-test')
             ],
@@ -52,7 +52,7 @@ class UserSeeder extends Seeder
                 'email' => 'n@n',
                 'job_id' => '3',
                 'role_id' => '2',
-                'photo_id' => NULL,
+                'photo_id' => 5,
                 'description' => 'Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.',
                 'password' => Hash::make('test-test')
             ],
@@ -62,7 +62,7 @@ class UserSeeder extends Seeder
                 'email' => 't@t',
                 'job_id' => '3',
                 'role_id' => '3',
-                'photo_id' => NULL,
+                'photo_id' => 6,
                 'description' => 'Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.',
                 'password' => Hash::make('test-test')
             ]
