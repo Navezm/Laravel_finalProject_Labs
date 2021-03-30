@@ -17,7 +17,7 @@ class MapSeeder extends Seeder
         DB::table('maps')->insert([
             [
                 'address' => 'molengeek',
-            ],
+            ]
         ]);
     }
 }

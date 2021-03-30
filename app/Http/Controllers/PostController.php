@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Footer;
 use App\Models\Logo;
 use App\Models\Nav;
@@ -64,7 +65,9 @@ class PostController extends Controller
         $searches = Search::first();
         $tags = Tag::all();
         $placeholders = Placeholder::first();
-        return view('pages.blog-post',compact('show', 'post', 'footers', 'logo', 'navs', 'newsletters', 'categories', 'searches', 'tags', 'placeholders', 'paragraphs'));
+        $comments = Comment::where('post_id', $post->id)->get();
+        $nbrComment = count($comments);
+        return view('pages.blog-post',compact('show', 'post', 'footers', 'logo', 'navs', 'newsletters', 'categories', 'searches', 'tags', 'placeholders', 'paragraphs', 'comments', 'nbrComment'));
     }
 
     /**

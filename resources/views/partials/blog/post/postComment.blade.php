@@ -1,24 +1,17 @@
 <!-- Post Comments -->
-<div class="comments">
-    <h2>Comments (2)</h2>
+<div class="comments" id="commentId">
+    <h2>Comments ({{$nbrComment}})</h2>
     <ul class="comment-list">
-        <li>
-            <div class="avatar">
-                <img src="{{asset('img/avatar/01.jpg')}}" alt="">
-            </div>
-            <div class="commetn-text">
-                <h3>Michael Smith | 03 nov, 2017 | Reply</h3>
-                <p>Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique. </p>
-            </div>
-        </li>
-        <li>
-            <div class="avatar">
-                <img src="{{asset('img/avatar/02.jpg')}}" alt="">
-            </div>
-            <div class="commetn-text">
-                <h3>Michael Smith | 03 nov, 2017 | Reply</h3>
-                <p>Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique. </p>
-            </div>
-        </li>
+        @foreach ($comments as $item)
+            <li>
+                <div class="avatar">
+                    <img src="{{asset('img/'.$item->photos->src)}}" alt="">
+                </div>
+                <div class="commetn-text">
+                    <h3>{{$item->name}} | 03 nov, 2017</h3>
+                    <p>{{$item->content}}</p>
+                </div>
+            </li>
+        @endforeach
     </ul>
 </div>

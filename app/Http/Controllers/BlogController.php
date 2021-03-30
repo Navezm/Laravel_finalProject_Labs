@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Contact;
 use App\Models\Footer;
 use App\Models\Logo;
@@ -34,7 +35,8 @@ class BlogController extends Controller
         $searches = Search::first();
         $tags = Tag::all();
         $posts = Post::paginate(3);
-        return view('pages.blog', compact('navs', 'contacts', 'placeholders', 'logo', 'footers', 'newsletters', 'categories', 'searches', 'tags', 'posts'));
+        $comments = Comment::all();
+        return view('pages.blog', compact('navs', 'contacts', 'placeholders', 'logo', 'footers', 'newsletters', 'categories', 'searches', 'tags', 'posts', 'comments'));
     }
 
     /**

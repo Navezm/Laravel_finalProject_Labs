@@ -21,7 +21,7 @@
                     <a class="a_tag_style" href="">, {{$item}}</a>
                 @endif
             @endforeach
-        <a href="">2 Comments</a>
+        <a href="#commentId">{{$nbrComment}} Comments</a>
     </div>
     <p>{{$paragraphs[0]}}</p>
     <p>{{$paragraphs[1]}}</p>
