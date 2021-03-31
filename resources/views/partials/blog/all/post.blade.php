@@ -20,11 +20,11 @@
             <h2 class="post-title">{{$item->title}}</h2>
             <div class="post-meta">
                 <a href="/posts/{{$item->id}}">{{$item->authors->name}} {{$item->authors->surname}}</a>
-                @foreach ($item->tags->pluck('name')->random(2) as $tags)
+                @foreach ($item->tags->pluck('name')->random(2) as $tagss)
                     @if ($loop->iteration == 1)
-                        <a class="text-capitalize" href="">{{$tags}}</a>
+                        <a class="text-capitalize" href="/tagsFilter/">{{$tagss}}</a>
                     @else
-                        <a class="a_tag_style" href="">, {{$tags}}</a>
+                        <a class="a_tag_style" href="/tagsFilter">, {{$tagss}}</a>
                     @endif
                 @endforeach
                 <a href="/post/{{$item->id}}">{{count($comments->where('post_id', $item->id))}} Comments</a>
