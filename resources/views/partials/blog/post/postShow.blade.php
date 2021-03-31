@@ -13,7 +13,7 @@
 <div class="post-content">
     <h2 class="post-title">{{$post->title}}</h2>
     <div class="post-meta">
-        <a href="">{{$post->authors->name}} {{$post->authors->surname}}</a>
+        <a href="#authorId">{{$post->authors->name}} {{$post->authors->surname}}</a>
             @foreach ($post->tags->pluck('name') as $item)
                 @if ($loop->iteration == 1)
                     <a class="text-capitalize" href="">{{$item}}</a>

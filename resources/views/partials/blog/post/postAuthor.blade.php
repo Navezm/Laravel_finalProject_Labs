@@ -1,5 +1,5 @@
 <!-- Post Author -->
-<div class="author">
+<div class="author" id="authorId">
     <div class="avatar">
         <img height="150" src="{{asset('img/'.$post->authors->photos->src)}}" alt="">
     </div>

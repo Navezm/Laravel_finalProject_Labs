@@ -24,7 +24,7 @@
                         <a class="a_tag_style" href="">, {{$tags}}</a>
                     @endif
                 @endforeach
-                <a href="">{{count($comments->where('post_id', $item->id))}} Comments</a>
+                <a href="/post/{{$item->id}}">{{count($comments->where('post_id', $item->id))}} Comments</a>
             </div>
             <p>{{Str::limit($item->content, 300)}}</p>
             <a href="/post/{{$item->id}}" class="read-more">Read More</a>

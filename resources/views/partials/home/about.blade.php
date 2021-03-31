@@ -10,7 +10,7 @@
                     <div class="col-md-4 col-sm-6">
                         <div class="lab-card">
                             <div class="icon">
-                                <i class="{{$item->icon}}"></i>
+                                <i class="{{$item->icons->name}}"></i>
                             </div>
                             <h2>{{$item->title}}</h2>
                             <p>{{$item->content}}</p>

@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             JobSeeder::class,
             UserSeeder::class,
+            IconSeeder::class,
             CarrouselSeeder::class,
             TestimonialSeeder::class,
             WitnessSeeder::class,

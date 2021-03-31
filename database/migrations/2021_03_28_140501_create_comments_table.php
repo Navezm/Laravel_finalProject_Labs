@@ -22,6 +22,7 @@ class CreateCommentsTable extends Migration
             $table->foreign('post_id')->references('id')->on('posts');
             $table->unsignedBigInteger('picture_id')->nullable();
             $table->foreign('picture_id')->references('id')->on('pictures')->onDelete('set null');
+            $table->boolean('approuved');
             $table->timestamps();
         });
     }

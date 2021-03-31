@@ -65,7 +65,8 @@ class PostController extends Controller
         $searches = Search::first();
         $tags = Tag::all();
         $placeholders = Placeholder::first();
-        $comments = Comment::where('post_id', $post->id)->get();
+        $commentGood = Comment::where('approuved', true)->get();
+        $comments = $commentGood->where('post_id', $post->id);
         $nbrComment = count($comments);
         return view('pages.blog-post',compact('show', 'post', 'footers', 'logo', 'navs', 'newsletters', 'categories', 'searches', 'tags', 'placeholders', 'paragraphs', 'comments', 'nbrComment'));
     }

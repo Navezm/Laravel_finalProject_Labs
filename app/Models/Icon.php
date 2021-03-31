@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Resource extends Model
+class Icon extends Model
 {
     use HasFactory;
 
-    public function icons()
+    public function resources()
     {
-        return $this->belongsTo(Icon::class,'icon_id');
+        return $this->hasMany(Resource::class,'icon_id');
     }
 }
