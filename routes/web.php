@@ -54,6 +54,9 @@ Route::get('/', function () {
     return view('welcome',compact('resources', 'introductions', 'contacts', 'placeholders', 'carrousels', 'stands', 'newsletters', 'services', 'users', 'testimonials', 'witnesses', 'footers', 'logo', 'navs', 'teams'));
 });
 
+// Route Function
+Route::get('/postsFilter/{id}', [BlogController::class,'filter']);
+
 // Route Resource
 Route::resource('services', ServicesController::class);
 Route::resource('blog', BlogController::class);

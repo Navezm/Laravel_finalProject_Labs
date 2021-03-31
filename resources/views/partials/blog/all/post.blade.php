@@ -16,7 +16,7 @@
         <div class="post-content">
             <h2 class="post-title">{{$item->title}}</h2>
             <div class="post-meta">
-                <a href="">{{$item->authors->name}} {{$item->authors->surname}}</a>
+                <a href="/posts/{{$item->id}}">{{$item->authors->name}} {{$item->authors->surname}}</a>
                 @foreach ($item->tags->pluck('name')->random(2) as $tags)
                     @if ($loop->iteration == 1)
                         <a class="text-capitalize" href="">{{$tags}}</a>

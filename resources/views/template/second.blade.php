@@ -30,7 +30,28 @@
 		</div>
 	</div>
 
-    @include('partials.header')
+    <!-- Header section -->
+	<header class="header-section">
+		<div class="logo">
+			<img height="32" src="{{asset('img/'.$logo->src)}}" alt=""><!-- Logo -->
+		</div>
+		<!-- Navigation -->
+		<div class="responsive"><i class="fa fa-bars"></i></div>
+		<nav>
+			<ul class="menu-list">
+				@foreach ($navs as $item)
+					@if ($item->link === "home")
+						<li class=""><a class="text-capitalize" href="/">{{$item->link}}</a></li>
+					@elseif($item->link === "blog")
+						<li class="active"><a class="text-capitalize" href="/{{$item->link}}">{{$item->link}}</a></li>
+					@else
+						<li class=""><a class="text-capitalize" href="/{{$item->link}}">{{$item->link}}</a></li>
+					@endif
+				@endforeach
+			</ul>
+		</nav>
+	</header>
+	<!-- Header section end -->
 
 	@if (Route::getCurrentRoute()->uri() != '/')
 		<!-- Page header -->
@@ -38,10 +59,10 @@
 			<div class="overlay"></div>
 			<div class="container text-right">
 				<div class="page-info">
-					<h2 class="text-capitalize">{{Route::getCurrentRoute()->uri() == 'post/{post}' ? 'Blog' : Route::getCurrentRoute()->uri()}}</h2>
+					<h2 class="text-capitalize">{{Route::getCurrentRoute()->uri() == 'post/{post}' || 'postsFilter/{id}' ? 'Blog' : Route::getCurrentRoute()->uri()}}</h2>
 					<div class="page-links">
 						<a href="/">Home</a>
-						<span class="text-capitalize">{{Route::getCurrentRoute()->uri() == 'post/{post}' ? 'Blog' : Route::getCurrentRoute()->uri()}}</span>
+						<span class="text-capitalize">{{Route::getCurrentRoute()->uri() == 'post/{post}' || 'postsFilter/{id}' ? 'Blog' : Route::getCurrentRoute()->uri()}}</span>
 					</div>
 				</div>
 			</div>
