@@ -1,4 +1,7 @@
-@foreach ($posts as $item)
+@if (count($posts) == 0)
+    <h1 class="text-left">No Results</h1>
+@else
+    @foreach ($posts as $item)
     <!-- Post item -->
     <div class="post-item">
         <div class="post-thumbnail">
@@ -30,8 +33,11 @@
             <a href="/post/{{$item->id}}" class="read-more">Read More</a>
         </div>
     </div>
-@endforeach
-{{-- <!-- Pagination -->
-<div>
-    {{$posts->fragment('service')->links('vendor.pagination.bootstrap-4')}}
-</div> --}}
+    @endforeach
+    <!-- Pagination -->
+    @if (Route::getCurrentRoute()->uri() != 'tagsFilter/{id}')
+    <div>
+        {{$posts->fragment('service')->links('vendor.pagination.bootstrap-4')}}
+    </div>
+    @endif
+@endif

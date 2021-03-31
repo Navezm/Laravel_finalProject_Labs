@@ -71,16 +71,33 @@ class BlogController extends Controller
         $posts = [];
         $tagsArray = [];
         foreach ($postAll as $item) {
-            // foreach ($item->tags->pluck('id') as $tagss) {
-            //     array_push($tagsArray, $tagss);
-            // }
-            if (in_array($id, )) {
+            $tagsArray = $item->tags->pluck('id')->toArray();
+            if (in_array($id, $tagsArray)) {
                 array_push($posts, $item);
             }
-            // dd($tagsArray);
             unset($tagsArray);
         }
 
+        $comments = Comment::where('approuved', true)->get();
+        return view('pages.blog', compact('navs', 'contacts', 'placeholders', 'logo', 'footers', 'newsletters', 'categories', 'searches', 'tags', 'posts', 'comments'));
+    }
+
+    public function search(Request $request)
+    {
+        // Search function
+        $search = $request->search;
+        $posts = Post::query()->where('title', 'LIKE', "%{$search}%")->paginate(3);
+
+        // DB for template
+        $navs = Nav::all();
+        $contacts = Contact::first();
+        $placeholders = Placeholder::first();
+        $logo = Logo::first();
+        $footers = Footer::first();
+        $newsletters = Newsletter::first();
+        $categories = Category::all();
+        $searches = Search::first();
+        $tags = Tag::all();
         $comments = Comment::where('approuved', true)->get();
         return view('pages.blog', compact('navs', 'contacts', 'placeholders', 'logo', 'footers', 'newsletters', 'categories', 'searches', 'tags', 'posts', 'comments'));
     }
