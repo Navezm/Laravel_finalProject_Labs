@@ -56,6 +56,7 @@ Route::get('/', function () {
 
 // Route Function
 Route::get('/postsFilter/{id}', [BlogController::class,'filter']);
+Route::get('/tagsFilter/{id}', [BlogController::class,'filterTag']);
 
 // Route Resource
 Route::resource('services', ServicesController::class);

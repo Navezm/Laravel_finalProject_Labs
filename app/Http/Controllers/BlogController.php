@@ -55,6 +55,36 @@ class BlogController extends Controller
         return view('pages.blog', compact('navs', 'contacts', 'placeholders', 'logo', 'footers', 'newsletters', 'categories', 'searches', 'tags', 'posts', 'comments'));
     }
 
+    public function filterTag($id)
+    {
+        $navs = Nav::all();
+        $contacts = Contact::first();
+        $placeholders = Placeholder::first();
+        $logo = Logo::first();
+        $footers = Footer::first();
+        $newsletters = Newsletter::first();
+        $categories = Category::all();
+        $searches = Search::first();
+        $tags = Tag::all();
+        $postAll = Post::all();
+
+        $posts = [];
+        $tagsArray = [];
+        foreach ($postAll as $item) {
+            // foreach ($item->tags->pluck('id') as $tagss) {
+            //     array_push($tagsArray, $tagss);
+            // }
+            if (in_array($id, )) {
+                array_push($posts, $item);
+            }
+            // dd($tagsArray);
+            unset($tagsArray);
+        }
+
+        $comments = Comment::where('approuved', true)->get();
+        return view('pages.blog', compact('navs', 'contacts', 'placeholders', 'logo', 'footers', 'newsletters', 'categories', 'searches', 'tags', 'posts', 'comments'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

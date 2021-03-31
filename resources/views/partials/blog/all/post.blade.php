@@ -31,7 +31,7 @@
         </div>
     </div>
 @endforeach
-<!-- Pagination -->
+{{-- <!-- Pagination -->
 <div>
     {{$posts->fragment('service')->links('vendor.pagination.bootstrap-4')}}
-</div>
+</div> --}}

@@ -16,7 +16,7 @@
                                 <p>{{Str::limit($item->content, 80)}}</p>
                             </div>
                             <div class="icon">
-                                <i class="{{$item->icon}}"></i>
+                                <i class="{{$item->icons->name}}"></i>
                             </div>
                         </div>
                     @endif
@@ -34,7 +34,7 @@
                     @if($loop->iteration > 3)
                         <div class="icon-box light right">
                             <div class="icon">
-                                <i class="{{$item->icon}}"></i>
+                                <i class="{{$item->icons->name}}"></i>
                             </div>
                             <div class="service-text">
                                 <h2>{{$item->title}}</h2>
