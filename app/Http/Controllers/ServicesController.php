@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\EmailSubject;
 use App\Models\Footer;
 use App\Models\Logo;
 use App\Models\Nav;
@@ -26,6 +27,7 @@ class ServicesController extends Controller
         $navs = Nav::all();
         $contacts = Contact::first();
         $placeholders = Placeholder::first();
+        $emailSubjects = EmailSubject::all();
         $logo = Logo::first();
         $footers = Footer::first();
         $services = Services::first();
@@ -41,7 +43,7 @@ class ServicesController extends Controller
         $lastPostId = $posts->last()->id;
         $lastPost = $posts->whereBetween('id', [($lastPostId-2), ($lastPostId)]);
 
-        return view('pages.services', compact('navs', 'contacts', 'placeholders', 'logo', 'footers', 'services', 'resources', 'lastPost', 'newsletters', 'phones', 'lastServices'));
+        return view('pages.services', compact('navs', 'emailSubjects', 'contacts', 'placeholders', 'logo', 'footers', 'services', 'resources', 'lastPost', 'newsletters', 'phones', 'lastServices'));
     }
 
     /**

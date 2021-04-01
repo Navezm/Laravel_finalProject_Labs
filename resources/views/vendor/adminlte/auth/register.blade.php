@@ -1,3 +1,5 @@
+<?php use App\Models\Job; $jobs=Job::all(); ?>
+
 @extends('adminlte::auth.auth-page', ['auth_type' => 'register'])
 
 @php( $login_url = View::getSection('login_url') ?? config('adminlte.login_url', 'login') )
@@ -14,13 +16,13 @@
 @section('auth_header', __('adminlte::adminlte.register_message'))
 
 @section('auth_body')
-    <form action="{{ $register_url }}" method="post">
+    <form action="{{ $register_url }}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
 
         {{-- Name field --}}
         <div class="input-group mb-3">
             <input type="text" name="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"
-                   value="{{ old('name') }}" placeholder="{{ __('adminlte::adminlte.full_name') }}" autofocus>
+                   value="{{ old('name') }}" placeholder="{{ __('Name') }}" autofocus>
             <div class="input-group-append">
                 <div class="input-group-text">
                     <span class="fas fa-user {{ config('adminlte.classes_auth_icon', '') }}"></span>
@@ -29,6 +31,22 @@
             @if($errors->has('name'))
                 <div class="invalid-feedback">
                     <strong>{{ $errors->first('name') }}</strong>
+                </div>
+            @endif
+        </div>
+
+        {{-- Surname field --}}
+        <div class="input-group mb-3">
+            <input type="text" name="surname" class="form-control {{ $errors->has('surname') ? 'is-invalid' : '' }}"
+                   value="{{ old('surname') }}" placeholder="{{ __('Surname') }}" autofocus>
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    <span class="fas fa-user {{ config('adminlte.classes_auth_icon', '') }}"></span>
+                </div>
+            </div>
+            @if($errors->has('surname'))
+                <div class="invalid-feedback">
+                    <strong>{{ $errors->first('surname') }}</strong>
                 </div>
             @endif
         </div>
@@ -45,6 +63,57 @@
             @if($errors->has('email'))
                 <div class="invalid-feedback">
                     <strong>{{ $errors->first('email') }}</strong>
+                </div>
+            @endif
+        </div>
+
+        {{-- Job field --}}
+        <div class="input-group mb-3">
+            <select class="form-control" name="job_id" id="">
+                @foreach ($jobs as $item)
+                    <option value="{{$item->id}}">{{$item->name}}</option>
+                @endforeach
+            </select>
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    <span class="fas fa-briefcase {{ config('adminlte.classes_auth_icon', '') }}"></span>
+                </div>
+            </div>
+            @if($errors->has('job_id'))
+                <div class="invalid-feedback">
+                    <strong>{{ $errors->first('job_id') }}</strong>
+                </div>
+            @endif
+        </div>
+
+       {{-- Picture field --}}
+       <div class="input-group mb-3">
+            <input class="form-control" type="file" name="src">
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    <span class="fas fa-images {{ config('adminlte.classes_auth_icon', '') }}"></span>
+                </div>
+            </div>
+            @if($errors->has('src'))
+                <div class="invalid-feedback">
+                    <strong>{{ $errors->first('src') }}</strong>
+                </div>
+            @endif
+        </div> 
+
+        {{-- Description field --}}
+        <div class="input-group mb-3">
+            <input type="text" name="description" class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}"
+                   value="{{ old('description') }}" placeholder="{{ __('Description') }}" autofocus>
+            {{-- <textarea name="description" id="" class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}" cols="30" rows="4" value="{{ old('description') }}" placeholder="{{ __('Description') }}"></textarea> --}}
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    <span class="fas fa-user {{ config('adminlte.classes_auth_icon', '') }}"></span>
+                </div>
+            </div>
+            @if($errors->has('description'))
+                <div class="invalid-feedback">
+                    <strong>{{ $errors->first('description') }}</strong>
                 </div>
             @endif
         </div>

@@ -6,10 +6,10 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ServicesController;
 use App\Models\Carrousel;
 use App\Models\Contact;
+use App\Models\EmailSubject;
 use App\Models\Footer;
 use App\Models\Introduction;
 use App\Models\Logo;
-use App\Models\Map;
 use App\Models\Nav;
 use App\Models\Newsletter;
 use App\Models\Placeholder;
@@ -51,7 +51,8 @@ Route::get('/', function () {
     $logo = Logo::first();
     $navs = Nav::all();
     $teams = Team::first();
-    return view('welcome',compact('resources', 'introductions', 'contacts', 'placeholders', 'carrousels', 'stands', 'newsletters', 'services', 'users', 'testimonials', 'witnesses', 'footers', 'logo', 'navs', 'teams'));
+    $emailSubjects = EmailSubject::all();
+    return view('welcome',compact('resources', 'introductions', 'contacts', 'placeholders', 'carrousels', 'stands', 'newsletters', 'services', 'users', 'testimonials', 'witnesses', 'footers', 'logo', 'navs', 'teams', 'emailSubjects'));
 });
 
 // Route Function

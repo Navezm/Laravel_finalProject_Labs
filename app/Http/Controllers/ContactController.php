@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\EmailSubject;
 use App\Models\Footer;
 use App\Models\Logo;
 use App\Models\Map;
@@ -25,7 +26,8 @@ class ContactController extends Controller
         $logo = Logo::first();
         $footers = Footer::first();
         $map = Map::first();
-        return view('pages.contact', compact('navs', 'contacts', 'placeholders', 'logo', 'footers', 'map'));
+        $emailSubjects = EmailSubject::all();
+        return view('pages.contact', compact('navs', 'emailSubjects', 'contacts', 'placeholders', 'logo', 'footers', 'map'));
     }
 
     /**

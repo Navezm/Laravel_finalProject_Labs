@@ -10,7 +10,7 @@
                 <!-- single member -->
                 <div class="col-sm-4">
                     <div class="member">
-                        <img height="400" width="90%" src="{{asset('img/'.$item->photos->src)}}" alt="">
+                        <img height="400" width="90%" src="{{asset('img/team/'.$item->photos->src)}}" alt="">
                         <h2>{{$item->name}} {{$item->surname}}</h2>
                         <h3>{{$item->jobs->name}}</h3>
                     </div>
@@ -18,7 +18,7 @@
                 @if ($loop->iteration == 1)
                     <div class="col-sm-4">
                         <div class="member">
-                            <img height="400" width="90%" src="{{asset('img/'.$users[0]->photos->src)}}" alt="">
+                            <img height="400" width="90%" src="{{asset('img/team/'.$users[0]->photos->src)}}" alt="">
                             <h2>{{$users[0]->name}} {{$users[0]->surname}}</h2>
                             <h3>{{$users[0]->jobs->name}}</h3>
                         </div>

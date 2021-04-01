@@ -19,19 +19,19 @@ class PictureSeeder extends Seeder
                 'src' => 'default-user.png'
             ],
             [
-                'src' => 'team/1.jpg'
+                'src' => '1.jpg'
             ],
             [
-                'src' => 'team/2.jpg'
+                'src' => '2.jpg'
             ],
             [
-                'src' => 'team/3.jpg'
+                'src' => '3.jpg'
             ],
             [
-                'src' => 'team/4.jpg'
+                'src' => '4.jpg'
             ],
             [
-                'src' => 'team/5.jpg'
+                'src' => '5.jpg'
             ],
         ]);
     }

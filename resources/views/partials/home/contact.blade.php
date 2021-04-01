@@ -25,7 +25,11 @@
                             <input type="text" name="email" placeholder="{{$placeholders->email}}">
                         </div>
                         <div class="col-sm-12">
-                            <input type="text" name="subject" placeholder="Subject">
+                            <select name="subject_id" id="">
+                                @foreach ($emailSubjects as $item)
+                                    <option value="{{$item->id}}">{{$item->subject}}</option>
+                                @endforeach
+                            </select>
                             <textarea name="message" placeholder="{{$placeholders->message}}"></textarea>
                             <button type="submit" class="site-btn">{{$placeholders->btn}}</button>
                         </div>
