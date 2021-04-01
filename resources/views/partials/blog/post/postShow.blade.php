@@ -14,11 +14,11 @@
     <h2 class="post-title">{{$post->title}}</h2>
     <div class="post-meta">
         <a href="#authorId">{{$post->authors->name}} {{$post->authors->surname}}</a>
-            @foreach ($post->tags->pluck('name') as $item)
+            @foreach ($post->tags as $item)
                 @if ($loop->iteration == 1)
-                    <a class="text-capitalize" href="">{{$item}}</a>
+                    <a class="text-capitalize" href="/tagsFilter/{{$item->id}}">{{$item->name}}</a>
                 @else
-                    <a class="a_tag_style" href="">, {{$item}}</a>
+                    <a class="a_tag_style" href="/tagsFilter/{{$item->id}}">, {{$item->name}}</a>
                 @endif
             @endforeach
         <a href="#commentId">{{$nbrComment}} Comments</a>

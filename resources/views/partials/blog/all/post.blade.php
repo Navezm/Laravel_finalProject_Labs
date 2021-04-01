@@ -19,15 +19,15 @@
         <div class="post-content">
             <h2 class="post-title">{{$item->title}}</h2>
             <div class="post-meta">
-                <a href="/posts/{{$item->id}}">{{$item->authors->name}} {{$item->authors->surname}}</a>
-                @foreach ($item->tags->pluck('name')->random(2) as $tagss)
+                <a href="/post/{{$item->id}}/#authorId">{{$item->authors->name}} {{$item->authors->surname}}</a>
+                @foreach ($item->tags->random(2) as $tagss)
                     @if ($loop->iteration == 1)
-                        <a class="text-capitalize" href="/tagsFilter/">{{$tagss}}</a>
+                        <a class="text-capitalize" href="/tagsFilter/{{$tagss->id}}">{{$tagss->name}}</a>
                     @else
-                        <a class="a_tag_style" href="/tagsFilter">, {{$tagss}}</a>
+                        <a class="a_tag_style" href="/tagsFilter/{{$tagss->id}}">, {{$tagss->name}}</a>
                     @endif
                 @endforeach
-                <a href="/post/{{$item->id}}">{{count($comments->where('post_id', $item->id))}} Comments</a>
+                <a href="/post/{{$item->id}}/#commentId">{{count($comments->where('post_id', $item->id))}} Comments</a>
             </div>
             <p>{{Str::limit($item->content, 300)}}</p>
             <a href="/post/{{$item->id}}" class="read-more">Read More</a>
