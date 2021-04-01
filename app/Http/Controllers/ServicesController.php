@@ -46,6 +46,13 @@ class ServicesController extends Controller
         return view('pages.services', compact('navs', 'emailSubjects', 'contacts', 'placeholders', 'logo', 'footers', 'services', 'resources', 'lastPost', 'newsletters', 'phones', 'lastServices'));
     }
 
+    public function backoffice()
+    {
+        $logo = Logo::first();
+        $services = Services::first();
+        return view('pages.bo.home.services',compact('logo', 'services'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Logo;
 use App\Models\Resource;
+use App\Models\Services;
 use Illuminate\Http\Request;
 
 class ResourceController extends Controller
@@ -14,7 +16,10 @@ class ResourceController extends Controller
      */
     public function index()
     {
-        //
+        $logo = Logo::first();
+        $services = Services::first();
+        $resources = Resource::paginate(9);
+        return view('pages.bo.services.service',compact('logo', 'resources', 'services'));
     }
 
     /**

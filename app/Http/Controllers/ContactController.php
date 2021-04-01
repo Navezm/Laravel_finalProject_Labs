@@ -30,6 +30,15 @@ class ContactController extends Controller
         return view('pages.contact', compact('navs', 'emailSubjects', 'contacts', 'placeholders', 'logo', 'footers', 'map'));
     }
 
+    public function backoffice()
+    {
+        $logo = Logo::first();
+        $placeholders = Placeholder::first();
+        $contacts = Contact::first();
+        $emailSubjects = EmailSubject::all();
+        return view('pages.bo.contact.contact', compact('logo', 'placeholders', 'contacts', 'emailSubjects'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

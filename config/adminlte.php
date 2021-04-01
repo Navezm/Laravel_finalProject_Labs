@@ -45,9 +45,9 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-    'logo_img_class' => 'brand-image img-circle elevation-3',
+    'logo' => 'BackOffice',
+    'logo_img' => asset('img/big-logo.png'),
+    'logo_img_class' => 'brand-image elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
     'logo_img_alt' => 'AdminLTE',
@@ -235,20 +235,92 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
+            'text'        => 'Home',
+            'icon'        => 'fas fa-home',
+            'submenu' => [
+                [
+                    'text' => 'Carousel',
+                    'icon' => 'fas fa-circle',
+                    'url' => '/carousel'
+                ],
+                [
+                    'text' => 'Introduction',
+                    'icon' => 'fas fa-circle',
+                    'url' => '/introduction'
+                ],
+                [
+                    'text' => 'Testimonials',
+                    'icon' => 'fas fa-circle',
+                    'url' => '/testimonials'
+                ],
+                [
+                    'text' => 'Services',
+                    'icon' => 'fas fa-circle',
+                    'url' => '/servicesBo'
+                ],
+                [
+                    'text' => 'Stand out',
+                    'icon' => 'fas fa-circle',
+                    'url' => '/standOut'
+                ]
+
+            ]
+        ],
+        [
+            'text'        => 'Service',
+            'icon'        => 'fas fa-database',
+            'url' => '/resources'
+        ],
+        [
+            'text'        => 'Blog',
+            'icon'        => 'fas fa-edit',
+            'submenu' => [
+                [
+                    'text' => 'Article',
+                    'url' => '',
+                    'icon' => 'fas fa-circle'
+                ],
+                [
+                    'text' => 'Tags',
+                    'url' => '',
+                    'icon' => 'fas fa-circle'
+                ],
+                [
+                    'text' => 'Categories',
+                    'url' => '',
+                    'icon' => 'fas fa-circle'
+                ],
+                [
+                    'text' => 'Comments',
+                    'url' => '',
+                    'icon' => 'fas fa-circle'
+                ],
+            ]
+        ],
+        [
+            'text'        => 'Contact',
+            'icon'        => 'fas fa-address-card',
+            'submenu' => [
+                [
+                    'text' => 'Contact',
+                    'url' => '/contactBo',
+                    'icon' => 'fas fas fa-circle'
+                ],
+                [
+                    'text' => 'Map',
+                    'url' => '/map',
+                    'icon' => 'fas fas fa-circle'
+                ],
+            ]
         ],
         ['header' => 'account_settings'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
+            'text' => 'Users',
+            'url'  => '/team',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'change_password',
+            'text' => 'Subscriber',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],

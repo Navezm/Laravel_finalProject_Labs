@@ -84,6 +84,7 @@ class RegisterController extends Controller
             'role_id' => 4,
             'photo_id' => $photo->id,
             'description' => $data['description'],
+            'approuved' => false
         ]);
 
         return $user;

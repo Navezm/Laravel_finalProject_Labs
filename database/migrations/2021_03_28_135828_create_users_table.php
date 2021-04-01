@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->foreign('role_id')->references('id')->on('roles')->onDelete('set null');
             $table->unsignedBigInteger('photo_id')->nullable();
             $table->foreign('photo_id')->references('id')->on('pictures')->onDelete('set null');
+            $table->boolean('approuved');
             $table->text('description');
             $table->string('password');
             $table->rememberToken();

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Logo;
 use App\Models\Map;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,9 @@ class MapController extends Controller
      */
     public function index()
     {
-        //
+        $logo = Logo::first();
+        $map = Map::first();
+        return view('pages.bo.contact.map',compact('logo', 'map'));
     }
 
     /**

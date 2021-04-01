@@ -9,6 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,700|Roboto:300,400,700" rel="stylesheet">
+
     {{-- Custom Meta Tags --}}
     @yield('meta_tags')
 
@@ -103,6 +106,8 @@
 
     {{-- Custom Scripts --}}
     @yield('adminlte_js')
+
+    
 
 </body>
 

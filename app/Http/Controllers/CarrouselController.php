@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Carrousel;
+use App\Models\Logo;
 use Illuminate\Http\Request;
 
 class CarrouselController extends Controller
@@ -14,7 +15,9 @@ class CarrouselController extends Controller
      */
     public function index()
     {
-        //
+        $carrousels = Carrousel::all();
+        $logo = Logo::first();
+        return view('pages.bo.home.carousel', compact('carrousels', 'logo'));
     }
 
     /**

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Logo;
 use App\Models\Testimonial;
+use App\Models\Witness;
 use Illuminate\Http\Request;
 
 class TestimonialController extends Controller
@@ -14,7 +16,10 @@ class TestimonialController extends Controller
      */
     public function index()
     {
-        //
+        $logo = Logo::first();
+        $testimonials = Testimonial::first();
+        $witnesses = Witness::all();
+        return view('pages.bo.home.testimonials',compact('logo', 'witnesses', 'testimonials'));
     }
 
     /**

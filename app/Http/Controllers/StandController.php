@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Logo;
+use App\Models\Newsletter;
 use App\Models\Stand;
 use Illuminate\Http\Request;
 
@@ -14,7 +16,10 @@ class StandController extends Controller
      */
     public function index()
     {
-        //
+        $logo = Logo::first();
+        $stands = Stand::first();
+        $newsletters = Newsletter::first();
+        return view('pages.bo.home.standOut',compact('logo', 'stands', 'newsletters'));
     }
 
     /**

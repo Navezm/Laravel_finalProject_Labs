@@ -24,7 +24,8 @@ class UserSeeder extends Seeder
                 'role_id' => '1',
                 'photo_id' => 3,
                 'description' => 'Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.',
-                'password' => Hash::make('test-test')
+                'password' => Hash::make('test-test'),
+                'approuved' => true
             ],
             [
                 'name' => 'Doe',
@@ -34,7 +35,8 @@ class UserSeeder extends Seeder
                 'role_id' => '2',
                 'photo_id' => 4,
                 'description' => 'Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.',
-                'password' => Hash::make('test-test')
+                'password' => Hash::make('test-test'),
+                'approuved' => true
             ],
             [
                 'name' => 'Burnham',
@@ -44,7 +46,8 @@ class UserSeeder extends Seeder
                 'role_id' => '3',
                 'photo_id' => 2,
                 'description' => 'Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.',
-                'password' => Hash::make('test-test')
+                'password' => Hash::make('test-test'),
+                'approuved' => true
             ],
             [
                 'name' => 'Haught',
@@ -54,7 +57,8 @@ class UserSeeder extends Seeder
                 'role_id' => '2',
                 'photo_id' => 5,
                 'description' => 'Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.',
-                'password' => Hash::make('test-test')
+                'password' => Hash::make('test-test'),
+                'approuved' => true
             ],
             [
                 'name' => 'Law',
@@ -64,7 +68,8 @@ class UserSeeder extends Seeder
                 'role_id' => '3',
                 'photo_id' => 6,
                 'description' => 'Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.',
-                'password' => Hash::make('test-test')
+                'password' => Hash::make('test-test'),
+                'approuved' => true
             ]
         ]);
     }

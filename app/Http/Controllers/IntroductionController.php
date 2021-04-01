@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Introduction;
+use App\Models\Logo;
+use App\Models\Resource;
 use Illuminate\Http\Request;
 
 class IntroductionController extends Controller
@@ -14,7 +16,10 @@ class IntroductionController extends Controller
      */
     public function index()
     {
-        //
+        $logo = Logo::first();
+        $introductions = Introduction::first();
+        $resources = Resource::all();
+        return view('pages.bo.home.introduction',compact('logo', 'introductions', 'resources'));
     }
 
     /**
