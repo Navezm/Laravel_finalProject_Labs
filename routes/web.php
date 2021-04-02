@@ -5,6 +5,7 @@ use App\Http\Controllers\CarrouselController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\EmailSubjectController;
 use App\Http\Controllers\FooterController;
 use App\Http\Controllers\IntroductionController;
 use App\Http\Controllers\JobController;
@@ -99,6 +100,7 @@ Route::resource('jobs', JobController::class);
 Route::resource('roles', RoleController::class);
 Route::resource('subscribers', SubscriberController::class);
 Route::resource('users', UserController::class);
+Route::resource('subjects', EmailSubjectController::class);
 
 // Facade Auth + AdminLTE
 Auth::routes();

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\EmailSubject;
+use App\Models\Logo;
 use Illuminate\Http\Request;
 
 class EmailSubjectController extends Controller
@@ -35,7 +36,10 @@ class EmailSubjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newEntry = new EmailSubject;
+        $newEntry->subject = $request->subject;
+        $newEntry->save();
+        return redirect()->back();
     }
 
     /**
@@ -55,9 +59,11 @@ class EmailSubjectController extends Controller
      * @param  \App\Models\EmailSubject  $emailSubject
      * @return \Illuminate\Http\Response
      */
-    public function edit(EmailSubject $emailSubject)
+    public function edit($id)
     {
-        //
+        $subjects = EmailSubject::find($id);
+        $logo = Logo::first();
+        return view('pages.bo.contact.subjectEdit',compact('subjects', 'logo'));
     }
 
     /**
@@ -67,9 +73,12 @@ class EmailSubjectController extends Controller
      * @param  \App\Models\EmailSubject  $emailSubject
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, EmailSubject $emailSubject)
+    public function update(Request $request, $id)
     {
-        //
+        $updateEntry = EmailSubject::find($id);
+        $updateEntry->subject = $request->subject;
+        $updateEntry->save();
+        return redirect('contactBo');
     }
 
     /**
@@ -78,8 +87,10 @@ class EmailSubjectController extends Controller
      * @param  \App\Models\EmailSubject  $emailSubject
      * @return \Illuminate\Http\Response
      */
-    public function destroy(EmailSubject $emailSubject)
+    public function destroy($id)
     {
-        //
+        $destroy = EmailSubject::find($id);
+        $destroy->delete();
+        return redirect()->back();
     }
 }
