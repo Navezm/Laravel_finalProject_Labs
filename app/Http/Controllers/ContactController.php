@@ -91,7 +91,14 @@ class ContactController extends Controller
      */
     public function update(Request $request, Contact $contact)
     {
-        //
+        $updateEntry = $contact;
+        $updateEntry->paragraph = $request->paragraph;
+        $updateEntry->address1 = $request->address1;
+        $updateEntry->address2 = $request->address2;
+        $updateEntry->phone = $request->phone;
+        $updateEntry->email = $request->email;
+        $updateEntry->save();
+        return redirect()->back();
     }
 
     /**

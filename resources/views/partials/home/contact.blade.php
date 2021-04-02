@@ -25,11 +25,15 @@
                             <input type="text" name="email" placeholder="{{$placeholders->email}}">
                         </div>
                         <div class="col-sm-12">
-                            <select name="subject_id" id="">
-                                @foreach ($emailSubjects as $item)
-                                    <option value="{{$item->id}}">{{$item->subject}}</option>
-                                @endforeach
-                            </select>
+                            @if (count($emailSubjects) != 1)
+                                <select name="subject_id" id="">
+                                    @foreach ($emailSubjects as $item)
+                                        <option value="{{$item->id}}">{{$item->subject}}</option>
+                                    @endforeach
+                                </select>
+                            @else
+                                <input type="text" name="subject_id" disabled="disabled" value="{{$emailSubjects[0]->subject}}">
+                            @endif
                             <textarea name="message" placeholder="{{$placeholders->message}}"></textarea>
                             <button type="submit" class="site-btn">{{$placeholders->btn}}</button>
                         </div>

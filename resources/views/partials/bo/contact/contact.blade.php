@@ -1,6 +1,14 @@
 <div style="margin: 0; padding: 0;" class="row">
     <div style="margin: 0;" class="col-sm-6">
         <h1 class="text-center">Email Subjects</h1>
+        <h3 style="margin: 1% 0 1% 0;">Create a new subject</h3>
+        <form style="margin: 3% 0 3% 0;" action="/subjects" method="POST">
+            @csrf
+            <label for="">New Email Subject</label>
+            <input class="form-control" type="text" name="subject">
+            <br>
+            <button class="btn btn-info" type="submit">Create</button>
+        </form>
         <table class="table">
             <thead>
               <tr>
@@ -29,17 +37,25 @@
               @endforeach
             </tbody>
         </table>
-        <h3 style="margin: 1% 0 1% 0;">Create a new subject</h3>
-        <form style="margin: 3% 0 3% 0;" action="/subjects" method="POST">
-            @csrf
-            <label for="">New Email Subject</label>
-            <input class="form-control" type="text" name="subject">
-            <br>
-            <button class="btn btn-info" type="submit">Create</button>
-        </form>
     </div>
-    <div style="margin: 0;" class="col-sm-6">
+    <div style="margin: 0%;" class="col-sm-6">
         <h1 class="text-center">Contact</h1>
-    
+        <form style="margin: 3% 0 3% 0;" action="/contact/{{$contacts->id}}" method="POST">
+            @csrf
+            @method('PUT')
+            <label for="">Description Edit</label>
+            <input class="form-control" type="text" name="paragraph" value="{{$contacts->paragraph}}">
+            <br>
+        <h3 style="margin: 1% 0 1% 0;">Address</h3>
+            <label for="">Address</label>
+            <input class="form-control" type="text" name="address1" value="{{$contacts->address1}}">
+            <input class="form-control" type="text" name="address2" value="{{$contacts->address2}}">
+            <label for="">Phone</label>
+            <input class="form-control" type="text" name="phone" value="{{$contacts->phone}}">
+            <label for="">Email</label>
+            <input class="form-control" type="text" name="email" value="{{$contacts->email}}">
+            <br>
+            <button class="btn btn-success" type="submit">Edit</button>
+        </form>
     </div>
 </div>
