@@ -3,9 +3,11 @@
 @section('title', 'AdminLTE')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">Posts</h1>
+    <h1 class="m-0 text-dark">Logo</h1>
 @stop
 
 @section('content')
-    @include('partials.bo.blog.postsTable')
+    <div>
+        <img src="{{asset('img/'.$logo->src)}}" alt="">
+    </div>
 @stop

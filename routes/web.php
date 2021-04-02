@@ -5,15 +5,20 @@ use App\Http\Controllers\CarrouselController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FooterController;
 use App\Http\Controllers\IntroductionController;
+use App\Http\Controllers\JobController;
+use App\Http\Controllers\LogoController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ResourceController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\StandController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\UserController;
 use App\Models\Carrousel;
 use App\Models\Contact;
 use App\Models\EmailSubject;
@@ -65,7 +70,7 @@ Route::get('/', function () {
     return view('welcome',compact('resources', 'introductions', 'contacts', 'placeholders', 'carrousels', 'stands', 'newsletters', 'services', 'users', 'testimonials', 'witnesses', 'footers', 'logo', 'navs', 'teams', 'emailSubjects'));
 });
 
-// // Route Function
+// Route Function
 Route::get('/postsFilter/{id}', [BlogController::class,'filter']);
 Route::get('/tagsFilter/{id}', [BlogController::class,'filterTag']);
 Route::get('/search', [BlogController::class,'search']);
@@ -87,6 +92,11 @@ Route::resource('standOut', StandController::class);
 Route::resource('team', TeamController::class);
 Route::resource('testimonials', TestimonialController::class);
 Route::resource('resources', ResourceController::class);
+Route::resource('footer', FooterController::class);
+Route::resource('logo', LogoController::class);
+Route::resource('jobs', JobController::class);
+Route::resource('roles', RoleController::class);
+Route::resource('users', UserController::class);
 
 // Facade Auth + AdminLTE
 Auth::routes();

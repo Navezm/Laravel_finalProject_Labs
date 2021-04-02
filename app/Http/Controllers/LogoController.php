@@ -14,7 +14,8 @@ class LogoController extends Controller
      */
     public function index()
     {
-        //
+        $logo = Logo::first();
+        return view('pages.bo.logo',compact('logo'));
     }
 
     /**

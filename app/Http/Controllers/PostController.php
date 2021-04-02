@@ -23,7 +23,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::all();
+        return view('pages.bo.blog.article',compact('posts'));
     }
 
     /**

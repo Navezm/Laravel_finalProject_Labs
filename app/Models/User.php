@@ -61,4 +61,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Picture::class,'photo_id');
     }
+
+    public function roles()
+    {
+        return $this->belongsTo(Role::class,'role_id');
+    }
 }

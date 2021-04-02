@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Footer;
-use App\Models\Logo;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class FooterController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,8 @@ class FooterController extends Controller
      */
     public function index()
     {
-        $footers = Footer::first();
-        $logo = Logo::first();
-        return view('pages.bo.footer',compact('footers', 'logo'));
+        $users = User::all();
+        return view('pages.bo.users',compact('users'));
     }
 
     /**
@@ -44,10 +42,10 @@ class FooterController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Footer  $footer
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Footer $footer)
+    public function show($id)
     {
         //
     }
@@ -55,10 +53,10 @@ class FooterController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Footer  $footer
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Footer $footer)
+    public function edit($id)
     {
         //
     }
@@ -67,10 +65,10 @@ class FooterController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Footer  $footer
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Footer $footer)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -78,10 +76,10 @@ class FooterController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Footer  $footer
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Footer $footer)
+    public function destroy($id)
     {
         //
     }
