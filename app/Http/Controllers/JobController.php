@@ -36,7 +36,10 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newEntry = new Job;
+        $newEntry->name = $request->name;
+        $newEntry->save();
+        return redirect()->back();
     }
 
     /**
@@ -58,7 +61,7 @@ class JobController extends Controller
      */
     public function edit(Job $job)
     {
-        //
+        return view('pages.bo.functionEdit',compact('job'));
     }
 
     /**
@@ -70,7 +73,10 @@ class JobController extends Controller
      */
     public function update(Request $request, Job $job)
     {
-        //
+        $updateEntry = $job;
+        $updateEntry->name = $request->name;
+        $updateEntry->save();
+        return redirect('jobs');
     }
 
     /**
@@ -81,6 +87,9 @@ class JobController extends Controller
      */
     public function destroy(Job $job)
     {
-        //
+        if ($job->id != 1) {
+            $job->delete();
+            return redirect()->back();
+        }
     }
 }

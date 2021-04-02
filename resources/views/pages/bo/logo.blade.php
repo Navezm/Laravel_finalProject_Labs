@@ -10,4 +10,5 @@
     <div>
         <img src="{{asset('img/'.$logo->src)}}" alt="">
     </div>
+    @include('partials.bo.logo')
 @stop

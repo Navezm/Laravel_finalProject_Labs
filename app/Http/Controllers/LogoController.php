@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Logo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class LogoController extends Controller
 {
@@ -70,7 +71,12 @@ class LogoController extends Controller
      */
     public function update(Request $request, Logo $logo)
     {
-        //
+        $updateEntry = $logo;
+        Storage::disk('public')->delete('img/'.$logo->src);
+        $request->file('src')->storePublicly('img/', 'public');
+        $updateEntry->src = $request->file('src')->hashName();
+        $updateEntry->save();
+        return redirect()->back();
     }
 
     /**

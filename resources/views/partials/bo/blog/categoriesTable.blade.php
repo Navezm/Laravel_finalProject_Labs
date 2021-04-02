@@ -1,11 +1,11 @@
 <h5 style="margin: 1% 0 1% 0;">Create a new category</h5>
-  <form style="margin: 3% 0 3% 0;" action="/categories" method="POST">
-      @csrf
-      <label for="">New Category</label>
-      <input class="form-control" type="text" name="name">
-      <br>
-      <button class="btn btn-info" type="submit">Create</button>
-  </form>
+<form style="margin: 3% 0 3% 0;" action="/categories" method="POST">
+    @csrf
+    <label for="">New Category</label>
+    <input class="form-control" type="text" name="name">
+    <br>
+    <button class="btn btn-info" type="submit">Create</button>
+</form>
 <table class="table">
     <thead>
       <tr>

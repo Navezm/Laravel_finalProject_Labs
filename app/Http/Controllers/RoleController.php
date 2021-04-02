@@ -58,7 +58,7 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        //
+        return view('pages.bo.rolesEdit',compact('role'));
     }
 
     /**
@@ -70,7 +70,10 @@ class RoleController extends Controller
      */
     public function update(Request $request, Role $role)
     {
-        //
+        $updateEntry = $role;
+        $updateEntry->name = $request->name;
+        $updateEntry->save();
+        return redirect('roles');
     }
 
     /**

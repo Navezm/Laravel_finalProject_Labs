@@ -234,6 +234,9 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
+        [ 
+            'header' => 'CONTENT CHANGES', 
+        ],
         [
             'text'        => 'Home',
             'icon'        => 'fas fa-home',
@@ -322,7 +325,9 @@ return [
             'icon'        => 'fas fa-shoe-prints',
             'url' => '/footer'
         ],
-        ['header' => 'account_settings'],
+        [
+            'header' => 'account_settings'
+        ],
         [
             'text' => 'Users',
             'url'  => '/users',
@@ -343,6 +348,15 @@ return [
             'url'  => '/subscribers',
             'icon' => 'fas fa-award',
         ],
+        ['header' => ' '],
+        [
+            'text' => 'Back to website',
+            'classes' => 'text-primary',
+            'url' => '/',
+            'icon' => 'fas fa-home',
+            'icon_color' => 'blue'
+        ]
+
     ],
 
     /*

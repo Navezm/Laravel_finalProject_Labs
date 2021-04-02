@@ -4,7 +4,6 @@
         <th scope="col">#</th>
         <th scope="col">Name</th>
         <th scope="col"></th>
-        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -12,8 +11,9 @@
         <tr>
             <th scope="row">{{$item->id}}</th>
             <td>{{$item->name}}</td>
-            <td></td>
-            <td></td>
+            <td>
+              <a class="btn btn-success" href="/roles/{{$item->id}}/edit">Edit</a>
+            </td>
         </tr>
       @endforeach
     </tbody>

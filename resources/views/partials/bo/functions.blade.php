@@ -1,3 +1,11 @@
+<h5 style="margin: 1% 0 1% 0;">Create a new Job</h5>
+  <form style="margin: 3% 0 3% 0;" action="/jobs" method="POST">
+      @csrf
+      <label for="">New Job</label>
+      <input class="form-control" type="text" name="name">
+      <br>
+      <button class="btn btn-info" type="submit">Create</button>
+  </form>
 <table class="table">
     <thead>
       <tr>
@@ -12,8 +20,20 @@
         <tr>
             <th scope="row">{{$item->id}}</th>
             <td>{{$item->name}}</td>
-            <td></td>
-            <td></td>
+            <td>
+              <a class="btn btn-success" href="/jobs/{{$item->id}}/edit">Edit</a>
+            </td>
+            @if ($item->id == 1)
+                <td></td>
+            @else
+              <td>
+                <form action="/jobs/{{$item->id}}" method="POST">
+                  @csrf
+                  @method('DELETE')
+                  <button class="btn btn-danger" type="submit">Delete</button>
+                </form>
+              </td>
+            @endif
         </tr>
       @endforeach
     </tbody>
