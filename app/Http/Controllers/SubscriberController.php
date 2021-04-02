@@ -81,6 +81,7 @@ class SubscriberController extends Controller
      */
     public function destroy(Subscriber $subscriber)
     {
-        //
+        $subscriber->delete();
+        return redirect()->back();
     }
 }
