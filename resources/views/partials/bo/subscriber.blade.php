@@ -1,3 +1,4 @@
+<h4>Number of subscribers : {{count($subscribers)}}</h4>
 <table class="table">
     <thead>
       <tr>
