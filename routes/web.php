@@ -65,7 +65,7 @@ Route::get('/', function () {
     return view('welcome',compact('resources', 'introductions', 'contacts', 'placeholders', 'carrousels', 'stands', 'newsletters', 'services', 'users', 'testimonials', 'witnesses', 'footers', 'logo', 'navs', 'teams', 'emailSubjects'));
 });
 
-// Route Function
+// // Route Function
 Route::get('/postsFilter/{id}', [BlogController::class,'filter']);
 Route::get('/tagsFilter/{id}', [BlogController::class,'filterTag']);
 Route::get('/search', [BlogController::class,'search']);

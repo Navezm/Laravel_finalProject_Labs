@@ -46,7 +46,7 @@ return [
     */
 
     'logo' => 'BackOffice',
-    'logo_img' => asset('img/big-logo.png'),
+    'logo_img' => 'img/big-logo.png',
     'logo_img_class' => 'brand-image elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -263,7 +263,6 @@ return [
                     'icon' => 'fas fa-circle',
                     'url' => '/standOut'
                 ]
-
             ]
         ],
         [
@@ -277,22 +276,22 @@ return [
             'submenu' => [
                 [
                     'text' => 'Article',
-                    'url' => '',
+                    'url' => '/',
                     'icon' => 'fas fa-circle'
                 ],
                 [
                     'text' => 'Tags',
-                    'url' => '',
+                    'url' => '/',
                     'icon' => 'fas fa-circle'
                 ],
                 [
                     'text' => 'Categories',
-                    'url' => '',
+                    'url' => '/',
                     'icon' => 'fas fa-circle'
                 ],
                 [
                     'text' => 'Comments',
-                    'url' => '',
+                    'url' => '/',
                     'icon' => 'fas fa-circle'
                 ],
             ]
