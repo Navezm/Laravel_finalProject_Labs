@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Icon;
 use App\Models\Logo;
 use App\Models\Resource;
 use App\Models\Services;
@@ -19,7 +20,9 @@ class ResourceController extends Controller
         $logo = Logo::first();
         $services = Services::first();
         $resources = Resource::paginate(9);
-        return view('pages.bo.services.service',compact('logo', 'resources', 'services'));
+        $resourcesAll = Resource::all();
+        $icons = Icon::all();
+        return view('pages.bo.services.service',compact('logo', 'resources', 'services', 'icons', 'resourcesAll'));
     }
 
     /**
@@ -40,7 +43,12 @@ class ResourceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newEntry = new Resource;
+        $newEntry->title = $request->title;
+        $newEntry->content = $request->content;
+        $newEntry->icon_id = $request->icon_id;
+        $newEntry->save();
+        return redirect()->back();
     }
 
     /**
@@ -62,7 +70,9 @@ class ResourceController extends Controller
      */
     public function edit(Resource $resource)
     {
-        //
+        $icons = Icon::all();
+        $logo = Logo::first();
+        return view('pages.bo.services.serviceEdit',compact('resource', 'icons', 'logo'));
     }
 
     /**
@@ -74,7 +84,12 @@ class ResourceController extends Controller
      */
     public function update(Request $request, Resource $resource)
     {
-        //
+        $updateEntry = $resource;
+        $updateEntry->title = $request->title;
+        $updateEntry->content = $request->content;
+        $updateEntry->icon_id = $request->icon_id;
+        $updateEntry->save();
+        return redirect('resources');
     }
 
     /**
@@ -85,6 +100,7 @@ class ResourceController extends Controller
      */
     public function destroy(Resource $resource)
     {
-        //
+        $resource->delete();
+        return redirect()->back();
     }
 }

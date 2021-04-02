@@ -22,4 +22,5 @@
             {{$resources->fragment('service')->links('vendor.pagination.bootstrap-4')}}
         </div>
     </div>
+    @include('partials.bo.services.resourcesTable')
 @stop
