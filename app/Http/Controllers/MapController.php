@@ -72,7 +72,9 @@ class MapController extends Controller
      */
     public function update(Request $request, Map $map)
     {
-        //
+        $map->address = $request->address;
+        $map->save();
+        return redirect()->back();
     }
 
     /**

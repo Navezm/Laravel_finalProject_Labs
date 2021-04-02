@@ -314,12 +314,12 @@ return [
         ],
         [
             'text'        => 'Logo',
-            'icon'        => 'fas fa-database',
+            'icon'        => 'fas fa-ring',
             'url' => '/logo'
         ],
         [
             'text'        => 'Footer',
-            'icon'        => 'fas fa-database',
+            'icon'        => 'fas fa-shoe-prints',
             'url' => '/footer'
         ],
         ['header' => 'account_settings'],
@@ -329,19 +329,19 @@ return [
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'Subscriber',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
             'text' => 'Jobs',
             'url'  => '/jobs',
-            'icon' => 'fas fa-fw fa-lock',
+            'icon' => 'fas fa-briefcase',
         ],
         [
             'text' => 'Role',
             'url'  => '/roles',
-            'icon' => 'fas fa-fw fa-lock',
+            'icon' => 'fas fa-user-tag',
+        ],
+        [
+            'text' => 'Subscriber',
+            'url'  => '/subscribers',
+            'icon' => 'fas fa-award',
         ],
     ],
 

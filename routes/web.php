@@ -15,6 +15,7 @@ use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\StandController;
+use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TestimonialController;
@@ -96,6 +97,7 @@ Route::resource('footer', FooterController::class);
 Route::resource('logo', LogoController::class);
 Route::resource('jobs', JobController::class);
 Route::resource('roles', RoleController::class);
+Route::resource('subscribers', SubscriberController::class);
 Route::resource('users', UserController::class);
 
 // Facade Auth + AdminLTE
