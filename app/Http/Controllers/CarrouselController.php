@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Carrousel;
 use App\Models\Logo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CarrouselController extends Controller
 {
@@ -38,7 +39,12 @@ class CarrouselController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newEntry = new Carrousel;
+        $newEntry->paragraph = $request->paragraph;
+        $newEntry->src = $request->file('src')->hashName();
+        $request->file('src')->storePublicly('img/', 'public');
+        $newEntry->save();
+        return redirect()->back();
     }
 
     /**
@@ -58,9 +64,11 @@ class CarrouselController extends Controller
      * @param  \App\Models\Carrousel  $carrousel
      * @return \Illuminate\Http\Response
      */
-    public function edit(Carrousel $carrousel)
+    public function edit($id)
     {
-        //
+        $carrousel = Carrousel::find($id);
+        $logo = Logo::first();
+        return view('pages.bo.home.carouselEdit',compact('logo', 'carrousel'));
     }
 
     /**
@@ -70,9 +78,17 @@ class CarrouselController extends Controller
      * @param  \App\Models\Carrousel  $carrousel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Carrousel $carrousel)
+    public function update(Request $request, $id)
     {
-        //
+        $updateEntry = Carrousel::find($id);
+        $updateEntry->paragraph = $request->paragraph;
+        if ($request->file('src') != NULL) {
+            Storage::disk('public')->delete('img/'.$updateEntry->src);
+            $updateEntry->src = $request->file('src')->hashName();
+            $request->file('src')->storePublicly('img/', 'public');
+        }        
+        $updateEntry->save();
+        return redirect('carousel');
     }
 
     /**
@@ -81,8 +97,11 @@ class CarrouselController extends Controller
      * @param  \App\Models\Carrousel  $carrousel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Carrousel $carrousel)
+    public function destroy($id)
     {
-        //
+        $destroy = Carrousel::find($id);
+        Storage::disk('public')->delete('img/'.$destroy->src);
+        $destroy->delete();
+        return redirect()->back();
     }
 }
