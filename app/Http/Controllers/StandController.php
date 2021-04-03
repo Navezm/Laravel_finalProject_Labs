@@ -72,9 +72,13 @@ class StandController extends Controller
      * @param  \App\Models\Stand  $stand
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Stand $stand)
+    public function update(Request $request, $id)
     {
-        //
+        $updateEntry = Stand::find($id);
+        $updateEntry->title = $request->title;
+        $updateEntry->paragraph = $request->paragraph;
+        $updateEntry->save();
+        return redirect()->back();
     }
 
     /**
