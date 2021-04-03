@@ -1000,7 +1000,8 @@ ul {
 }
 
 .sv-card .card-text {
-	padding: 70px 45px;
+	height: 300px;
+	padding: 50px 45px;
 	padding-right: 15px;
 	background: #f5f9f8;
 }
