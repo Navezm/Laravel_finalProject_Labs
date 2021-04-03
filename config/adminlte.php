@@ -294,7 +294,7 @@ return [
                 ],
                 [
                     'text' => 'Comments',
-                    'url' => '/comment',
+                    'url' => '/comments',
                     'icon' => 'fas fa-circle'
                 ],
             ]

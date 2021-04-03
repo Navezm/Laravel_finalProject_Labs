@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
@@ -14,7 +16,8 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        $comments = Comment::all();
+        return view('pages.bo.blog.comment',compact('comments'));
     }
 
     /**
@@ -35,7 +38,30 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $postId = explode('/', url()->previous());
+        $newEntry = new Comment;
+        if (Auth::check()) {
+            $newEntry->name = Auth::user()->name.' '.Auth::user()->surname;
+            $newEntry->email = Auth::user()->email;
+            $newEntry->picture_id = Auth::user()->photo_id;
+        } else {
+            $newEntry->name = $request->name;
+            $newEntry->email = $request->email;
+            $newEntry->picture_id = 1;
+        }
+        $newEntry->content = $request->content;
+        $newEntry->post_id = $postId[4];
+        $newEntry->approuved = false;
+        $newEntry->save();
+        return redirect()->back();
+    }
+
+    public function commentsValidate($id)
+    {
+        $updateEntry = Comment::find($id);
+        $updateEntry->approuved = 1;
+        $updateEntry->save();
+        return redirect()->back();
     }
 
     /**
@@ -80,6 +106,7 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment)
     {
-        //
+        $comment->delete();
+        return redirect()->back();
     }
 }

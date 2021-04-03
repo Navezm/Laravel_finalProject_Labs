@@ -19,7 +19,7 @@
                 <li>
                     <form action="/logout" method="POST">
                         @csrf
-                        <button class="btn" style="background: none;" type="submit">Log Out</button>
+                        <button class="btn btnLogOut" style="background: none;" type="submit">Log Out</button>
                     </form>
                 </li>
             @endif

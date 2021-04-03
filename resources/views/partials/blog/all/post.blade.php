@@ -11,8 +11,8 @@
                     <h2>03</h2>
                     <h3>Nov 2017</h3>
                 @else
-                    <h2></h2>
-                    <h3></h3> 
+                    <h2>{{$item->created_at->format('d')}}</h2>
+                    <h3>{{$item->created_at->format('M Y')}}</h3> 
                 @endif
             </div>
         </div>
@@ -31,7 +31,7 @@
 
                 <a href="/post/{{$item->id}}/#commentId">{{count($comments->where('post_id', $item->id))}} Comments</a>
             </div>
-            <p>{{Str::limit($item->content, 300)}}</p>
+            <p>{{Str::limit($item->content, 300)}}...</p>
             <a href="/post/{{$item->id}}" class="read-more">Read More</a>
         </div>
     </div>

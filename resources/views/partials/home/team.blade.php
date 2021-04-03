@@ -6,7 +6,7 @@
             <h2>{{$teams->title}}</h2>
         </div>
         <div class="row">
-            @foreach ($users->where('id', '!=', 1)->random(2) as $item)
+            @foreach ($users->where('job_id', '!=', 1)->random(2) as $item)
                 <!-- single member -->
                 <div class="col-sm-4">
                     <div class="member">

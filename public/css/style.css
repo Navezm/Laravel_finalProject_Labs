@@ -1788,3 +1788,9 @@ ul {
 .a_tag_style::after{
 	content: none !important;
 }
+
+.btnLogOut:active, .btnLogOut:focus {
+	outline: 0 !important;
+	border: none !important;
+	box-shadow: none !important;
+}

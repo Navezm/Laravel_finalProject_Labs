@@ -78,6 +78,7 @@ Route::get('/tagsFilter/{id}', [BlogController::class,'filterTag']);
 Route::get('/search', [BlogController::class,'search']);
 Route::get('/servicesBo', [ServicesController::class,'backoffice']);
 Route::get('/contactBo', [ContactController::class,'backoffice']);
+Route::post('commentsValidate/{id}', [CommentController::class,'commentsValidate']);
 
 // Route Resource
 Route::resource('services', ServicesController::class);
@@ -85,7 +86,7 @@ Route::resource('blog', BlogController::class);
 Route::resource('post', PostController::class);
 Route::resource('contact', ContactController::class);
 Route::resource('categories', CategoryController::class);
-Route::resource('comment', CommentController::class);
+Route::resource('comments', CommentController::class);
 Route::resource('tags', TagController::class);
 Route::resource('map', MapController::class);
 Route::resource('carousel', CarrouselController::class);

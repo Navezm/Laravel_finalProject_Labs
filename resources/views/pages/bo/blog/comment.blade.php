@@ -7,5 +7,5 @@
 @stop
 
 @section('content')
-
+    @include('partials.bo.blog.commentsTable')
 @stop
