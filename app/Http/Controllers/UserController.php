@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Picture;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::where('approuved', true)->get();
         return view('pages.bo.users',compact('users'));
     }
 
@@ -25,7 +26,16 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $users = User::where('approuved', false)->get();
+        return view('pages.bo.usersPending',compact('users'));
+    }
+
+    public function approuved($id)
+    {
+        $updateEntry = User::find($id);
+        $updateEntry->approuved = 1;
+        $updateEntry->save();
+        return redirect()->back();
     }
 
     /**
@@ -81,6 +91,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $destroy = User::find($id);
+        $picture = Picture::find($destroy->photo_id);
+        $picture->delete();
+        $destroy->delete();
+        return redirect()->back();
     }
 }

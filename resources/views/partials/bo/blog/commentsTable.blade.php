@@ -18,10 +18,10 @@
             <td>{{$item->email}}</td>
             <td>{{$item->content}}</td>
             <td>
-                <form action="/commentsValidate/{{$item->id}}" method="POST">
-                    @csrf
-                    <button class="btn btn-success" type="submit">Validate</button>
-                  </form>
+              <form action="/commentsValidate/{{$item->id}}" method="POST">
+                @csrf
+                <button class="btn btn-success" type="submit">Validate</button>
+              </form>
             </td>
             <td>
               <form action="/comments/{{$item->id}}" method="POST">

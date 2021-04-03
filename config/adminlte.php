@@ -329,6 +329,11 @@ return [
             'header' => 'account_settings'
         ],
         [
+            'text' => 'Pending users',
+            'url'  => '/users/create',
+            'icon' => 'fas fa-user-plus',
+        ],
+        [
             'text' => 'Users',
             'url'  => '/users',
             'icon' => 'fas fa-fw fa-user',

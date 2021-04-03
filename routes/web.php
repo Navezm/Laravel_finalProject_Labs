@@ -61,7 +61,7 @@ Route::get('/', function () {
     $stands = Stand::first();
     $newsletters = Newsletter::first();
     $services = Services::first();
-    $users = User::all();
+    $users = User::where('approuved', true)->get();
     $testimonials = Testimonial::first();
     $witnesses = Witness::all();
     $footers = Footer::first();
@@ -79,6 +79,7 @@ Route::get('/search', [BlogController::class,'search']);
 Route::get('/servicesBo', [ServicesController::class,'backoffice']);
 Route::get('/contactBo', [ContactController::class,'backoffice']);
 Route::post('commentsValidate/{id}', [CommentController::class,'commentsValidate']);
+Route::post('usersPending/{id}', [UserController::class,'approuved']);
 
 // Route Resource
 Route::resource('services', ServicesController::class);
