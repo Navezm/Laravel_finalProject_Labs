@@ -74,7 +74,12 @@ class IntroductionController extends Controller
      */
     public function update(Request $request, Introduction $introduction)
     {
-        //
+        $updateEntry = $introduction;
+        $updateEntry->p1 = $request->p1;
+        $updateEntry->p2 = $request->p2;
+        $updateEntry->url = $request->url;
+        $updateEntry->save();
+        return redirect()->back();
     }
 
     /**

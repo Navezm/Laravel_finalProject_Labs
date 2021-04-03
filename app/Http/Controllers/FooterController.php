@@ -72,7 +72,12 @@ class FooterController extends Controller
      */
     public function update(Request $request, Footer $footer)
     {
-        //
+        $updateEntry = $footer;
+        $updateEntry->span1 = $request->span1;
+        $updateEntry->span2 = $request->span2;
+        $updateEntry->url = $request->url;
+        $updateEntry->save();
+        return redirect()->back();
     }
 
     /**
