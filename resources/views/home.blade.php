@@ -11,7 +11,10 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <p class="mb-0">You are logged in!</p>
+                    <h2 class="">Welcome in the BackOffice!</h2>
+                    <p>Here you can modify all of your website content. On the left menu, you'll find two categories as well as a button to go back to your website.</p>
+                    <p class="ml-3"><strong>Content Change</strong>: find all the parts of your website waiting for you to modify them!</p>
+                    <p class="ml-3"><strong>Account Setting</strong>: find your pending users, a complete list of the team's users, the different jobs, roles and a list of your newsletter's subscribers.</p>
                 </div>
             </div>
         </div>
