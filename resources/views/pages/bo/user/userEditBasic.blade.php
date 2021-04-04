@@ -7,5 +7,5 @@
 @stop
 
 @section('content')
-    @include('partials.bo.users.userTable')
+    @include('partials.bo.users.userEditBasic')
 @stop

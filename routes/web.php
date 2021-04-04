@@ -80,6 +80,7 @@ Route::get('/servicesBo', [ServicesController::class,'backoffice']);
 Route::get('/contactBo', [ContactController::class,'backoffice']);
 Route::post('commentsValidate/{id}', [CommentController::class,'commentsValidate']);
 Route::post('usersPending/{id}', [UserController::class,'approuved']);
+Route::get('/usersEditBasic/{id}', [UserController::class,'editBasic']);
 
 // Route Resource
 Route::resource('services', ServicesController::class);

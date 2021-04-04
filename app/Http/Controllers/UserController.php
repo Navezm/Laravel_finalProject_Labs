@@ -21,7 +21,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::where('approuved', true)->get();
-        return view('pages.bo.users',compact('users'));
+        return view('pages.bo.user.users',compact('users'));
     }
 
     /**
@@ -32,7 +32,7 @@ class UserController extends Controller
     public function create()
     {
         $users = User::where('approuved', false)->get();
-        return view('pages.bo.usersPending',compact('users'));
+        return view('pages.bo.user.usersPending',compact('users'));
     }
 
     public function approuved($id)
@@ -63,7 +63,7 @@ class UserController extends Controller
     public function show($id)
     {
         $show = User::find($id);
-        return view('pages.bo.userShow', compact('show'));
+        return view('pages.bo.user.userShow', compact('show'));
     }
 
     /**
@@ -77,7 +77,15 @@ class UserController extends Controller
         $user = User::find($id);
         $jobs = Job::all();
         $roles = Role::all();
-        return view('pages.bo.userEdit',compact('user', 'jobs', 'roles'));
+        return view('pages.bo.user.userEdit',compact('user', 'jobs', 'roles'));
+    }
+
+    public function editBasic($id)
+    {
+        $user = User::find($id);
+        $jobs = Job::all();
+        $roles = Role::all();
+        return view('pages.bo.user.userEditBasic',compact('user', 'jobs', 'roles'));
     }
 
     /**
