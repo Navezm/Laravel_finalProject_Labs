@@ -1,5 +1,5 @@
 <div style="margin-top: 2%;" class="container">
-    <h1 style="margin-bottom: 1%;">Edit the role</h1>
+    <h1 style="margin-bottom: 1%;">Edit the job</h1>
     <form style="margin-bottom: 50px;" action="/jobs/{{$job->id}}" method="POST">
         @csrf
         @method('PUT')

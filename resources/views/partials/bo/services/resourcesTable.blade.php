@@ -1,5 +1,5 @@
 <div class="container">
-    <h5 style="margin: 1% 0 1% 0;">Create a new service</h5>
+    <h1 style="margin: 1% 0 1% 0;">Create a new service</h1>
     <form style="margin: 3% 0 3% 0;" action="/resources" method="POST">
         @csrf
         <label for="">Title</label>
@@ -17,6 +17,7 @@
         <br>
         <button class="btn btn-info" type="submit">Create</button>
     </form>
+    <h1 style="margin: 1% 0 1% 0;">Lists of the services</h1>
     <table class="table">
     <thead>
         <tr>

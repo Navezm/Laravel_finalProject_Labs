@@ -103,9 +103,13 @@ class ServicesController extends Controller
      * @param  \App\Models\Services  $services
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Services $services)
+    public function update(Request $request, $id)
     {
-        //
+        $updateEntry = Services::find($id);
+        $updateEntry->title = $request->title;
+        $updateEntry->btn = $request->btn;
+        $updateEntry->save();
+        return redirect()->back();
     }
 
     /**

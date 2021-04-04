@@ -1,6 +1,6 @@
 <div style="margin-top: 5%;" class="container">
     <h1 style="margin: 1% 0 1% 0;">Edit title & span</h1>
-    <form style="margin: 3% 0 3% 0;" action="/testimonials/{{$testimonials->id}}" method="POST" enctype="multipart/form-data">
+    <form style="margin: 3% 0 3% 0;" action="/testimonials/{{$testimonials->id}}" method="POST">
         @csrf
         @method('PUT')
         <label for="">Title</label>

@@ -1,4 +1,3 @@
-<h5 style="margin: 1% 0 1% 0;">Create a new category</h5>
 <form style="margin: 3% 0 3% 0;" action="/categories" method="POST">
     @csrf
     <label for="">New Category</label>

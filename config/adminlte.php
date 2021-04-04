@@ -293,7 +293,7 @@ return [
                     'icon' => 'fas fa-circle'
                 ],
                 [
-                    'text' => 'Comments',
+                    'text' => 'Pending comments',
                     'url' => '/comments',
                     'icon' => 'fas fa-circle'
                 ],
