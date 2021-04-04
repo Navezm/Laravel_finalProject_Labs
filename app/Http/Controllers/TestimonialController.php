@@ -74,7 +74,11 @@ class TestimonialController extends Controller
      */
     public function update(Request $request, Testimonial $testimonial)
     {
-        //
+        $updateEntry = $testimonial;
+        $updateEntry->title = $request->title;
+        $updateEntry->span = $request->span;
+        $updateEntry->save();
+        return redirect()->back();
     }
 
     /**

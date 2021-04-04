@@ -12,7 +12,7 @@
         <label for="">Icon</label>
         <select class="form-control" name="icon_id" id="">
             @foreach ($icons as $item)
-                <option value="{{$item->id}}">{{$item->name}}</option>
+                <option value="{{$item->id}}" {{$item->id == $resource->icon_id ? 'selected' : ''}}>{{$item->name}}</option>
             @endforeach
         </select>
         <br>
