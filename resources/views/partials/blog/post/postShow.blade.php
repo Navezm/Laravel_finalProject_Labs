@@ -5,8 +5,8 @@
             <h2>03</h2>
             <h3>Nov 2017</h3>
         @else
-            <h2></h2>
-            <h3></h3>
+            <h2>{{$post->created_at->format('d')}}</h2>
+            <h3>{{$post->created_at->format('M Y')}}</h3> 
         @endif
     </div>
 </div>
@@ -23,7 +23,7 @@
             @endforeach
         <a href="#commentId">{{$nbrComment}} Comments</a>
     </div>
-    <p>{{$paragraphs[0]}}</p>
-    <p>{{$paragraphs[1]}}</p>
-    <p>{{$paragraphs[2]}}</p>
+    @foreach ($paragraphs as $item)
+        <p>{{$item}}</p>
+    @endforeach
 </div>

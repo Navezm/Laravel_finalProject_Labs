@@ -70,7 +70,7 @@
         {{-- Job field --}}
         <div class="input-group mb-3">
             <select class="form-control" name="job_id" id="">
-                @foreach ($jobs as $item)
+                @foreach ($jobs->where('id', '!=', 1) as $item)
                     <option value="{{$item->id}}">{{$item->name}}</option>
                 @endforeach
             </select>

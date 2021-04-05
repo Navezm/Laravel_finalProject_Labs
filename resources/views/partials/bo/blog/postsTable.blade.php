@@ -14,8 +14,16 @@
             <th scope="row">{{$item->id}}</th>
             <td>{{$item->title}}</td>
             <td>{{$item->authors->name}} {{$item->authors->surname}}</td>
-            <td></td>
-            <td></td>
+            <td>
+              <a class="btn btn-success" href="/post/{{$item->id}}/edit">Edit</a>
+            </td>
+            <td>
+              <form action="/post/{{$item->id}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-danger" type="submit">Delete</button>
+              </form>
+            </td>
         </tr>
       @endforeach
     </tbody>

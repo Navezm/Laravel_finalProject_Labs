@@ -32,16 +32,10 @@ class ServicesController extends Controller
         $footers = Footer::first();
         $services = Services::first();
         $resources = Resource::paginate(9);
-        $resourcesAll = Resource::all();
         $phones = Phone::first();
-        $posts = Post::all();
         $newsletters = Newsletter::first();
-
-        $lastId = $resourcesAll->last()->id;
-        $lastServices = $resourcesAll->whereBetween('id', [($lastId-5),($lastId)]);
-
-        $lastPostId = $posts->last()->id;
-        $lastPost = $posts->whereBetween('id', [($lastPostId-2), ($lastPostId)]);
+        $lastServices = Resource::orderBy('id', 'DESC')->get()->take(6);
+        $lastPost = Post::orderBy('id', 'DESC')->get()->take(3);
 
         return view('pages.services', compact('navs', 'emailSubjects', 'contacts', 'placeholders', 'logo', 'footers', 'services', 'resources', 'lastPost', 'newsletters', 'phones', 'lastServices'));
     }

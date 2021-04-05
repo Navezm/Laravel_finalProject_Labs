@@ -13,6 +13,8 @@ use App\Models\Post;
 use App\Models\Search;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -45,7 +47,15 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newEntry = new Post;
+        $newEntry->title = $request->title;
+        $newEntry->content = $request->content;
+        $newEntry->author_id = Auth::id();
+        $newEntry->category_id = $request->category_id;
+        $newEntry->approuved = false;
+        $request->file('src')->storePublicly('img/blog/', 'public');
+        $newEntry->src = $request->file('src')->hashName();
+        return redirect()->back();
     }
 
     /**
@@ -56,7 +66,6 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        $show = Post::with('tags')->get();
         $paragraphs = explode('/', $post->content);
         $footers = Footer::first();
         $logo = Logo::first();
@@ -69,7 +78,7 @@ class PostController extends Controller
         $commentGood = Comment::where('approuved', true)->get();
         $comments = $commentGood->where('post_id', $post->id);
         $nbrComment = count($comments);
-        return view('pages.blog-post',compact('show', 'post', 'footers', 'logo', 'navs', 'newsletters', 'categories', 'searches', 'tags', 'placeholders', 'paragraphs', 'comments', 'nbrComment'));
+        return view('pages.blog-post',compact('post', 'footers', 'logo', 'navs', 'newsletters', 'categories', 'searches', 'tags', 'placeholders', 'paragraphs', 'comments', 'nbrComment'));
     }
 
     /**
@@ -80,7 +89,13 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        $paragraphs = explode('/', $post->content);
+        $categories = Category::all();
+        $tags = Tag::all();
+        $commentGood = Comment::where('approuved', true)->get();
+        $comments = $commentGood->where('post_id', $post->id);
+        $nbrComment = count($comments);
+        return view('pages.bo.blog.articleEdit',compact('post', 'categories','tags', 'paragraphs', 'comments', 'nbrComment'));
     }
 
     /**
@@ -103,6 +118,8 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        Storage::disk('public')->delete('img/blog'.$post->src);
+        return redirect()->back();
     }
 }
