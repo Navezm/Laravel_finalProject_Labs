@@ -7,5 +7,6 @@
 @stop
 
 @section('content')
+    @include('partials.bo.blog.postForm')
     @include('partials.bo.blog.postsTable')
 @stop

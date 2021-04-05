@@ -10,10 +10,12 @@ use App\Models\Nav;
 use App\Models\Newsletter;
 use App\Models\Placeholder;
 use App\Models\Post;
+use App\Models\Post_tag;
 use App\Models\Search;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
@@ -26,7 +28,9 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
-        return view('pages.bo.blog.article',compact('posts'));
+        $categories = Category::all();
+        $tags = Tag::all();
+        return view('pages.bo.blog.article',compact('posts', 'categories', 'tags'));
     }
 
     /**
@@ -52,9 +56,12 @@ class PostController extends Controller
         $newEntry->content = $request->content;
         $newEntry->author_id = Auth::id();
         $newEntry->category_id = $request->category_id;
-        $newEntry->approuved = false;
         $request->file('src')->storePublicly('img/blog/', 'public');
         $newEntry->src = $request->file('src')->hashName();
+        $newEntry->save();
+        foreach ($request->tag as $item) {
+            $newEntry->tags()->attach($item, ['post_id' => $newEntry->id]);
+        }
         return redirect()->back();
     }
 
@@ -95,7 +102,16 @@ class PostController extends Controller
         $commentGood = Comment::where('approuved', true)->get();
         $comments = $commentGood->where('post_id', $post->id);
         $nbrComment = count($comments);
-        return view('pages.bo.blog.articleEdit',compact('post', 'categories','tags', 'paragraphs', 'comments', 'nbrComment'));
+        return view('pages.bo.blog.articleShow',compact('post', 'categories','tags', 'paragraphs', 'comments', 'nbrComment'));
+    }
+
+    public function editPost($id)
+    {
+        $edit = Post::find($id);
+        $paragraphs = explode('/', $edit->content);
+        $categories = Category::all();
+        $tags = Tag::all();
+        return view('pages.bo.blog.articleEdit',compact('edit', 'paragraphs', 'categories', 'tags'));
     }
 
     /**
@@ -107,7 +123,20 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $updateEntry = $post;
+        $updateEntry->title = $request->title;
+        $updateEntry->content = $request->content;
+        $updateEntry->category_id = $request->category_id;
+        if ($request->file('src') != NULL) {
+            Storage::disk('public')->delete('img/blog/'.$updateEntry->src);
+            $request->file('src')->storePublicly('img/blog/', 'public');
+            $updateEntry->src = $request->file('src')->hashName();
+        }
+        $updateEntry->save();
+        foreach ($request->tag as $item) {
+            $updateEntry->tags()->attach($item, ['post_id' => $updateEntry->id]);
+        }
+        return redirect('post');
     }
 
     /**

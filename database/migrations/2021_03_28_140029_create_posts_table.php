@@ -22,7 +22,6 @@ class CreatePostsTable extends Migration
             $table->foreign('author_id')->references('id')->on('users')->onDelete('set null');
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-            $table->boolean('approuved');
             $table->timestamps();
         });
     }

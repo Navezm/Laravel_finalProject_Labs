@@ -81,6 +81,7 @@ Route::get('/contactBo', [ContactController::class,'backoffice']);
 Route::post('commentsValidate/{id}', [CommentController::class,'commentsValidate']);
 Route::post('usersPending/{id}', [UserController::class,'approuved']);
 Route::get('/usersEditBasic/{id}', [UserController::class,'editBasic']);
+Route::get('/postEdit/{id}', [PostController::class,'editPost']);
 
 // Route Resource
 Route::resource('services', ServicesController::class);

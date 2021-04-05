@@ -15,9 +15,20 @@
             </select>
         </div>
         <div class="form-group">
+            <label>Tags</label> <br>
+            @foreach ($tags as $item)
+                <input type="checkbox" name="tag[]" value="{{$item->id}}">
+                <label class="text-capitalize" for="">{{$item->name}}</label> <br>
+            @endforeach
+        </div>
+        <div class="form-group">
             <label>Content</label>
             <textarea class="form-control" name="content" id="" cols="30" rows="10"></textarea>
-            <small></small>
+            <small>If you wish to split your text in paragraph just put a "/" between them</small>
+        </div>
+        <div class="form-group">
+            <label>Image</label>
+            <input type="file" class="form-control" name="src">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

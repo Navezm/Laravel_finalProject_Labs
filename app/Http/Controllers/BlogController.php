@@ -34,7 +34,7 @@ class BlogController extends Controller
         $categories = Category::all();
         $searches = Search::first();
         $tags = Tag::all();
-        $posts = Post::paginate(3);
+        $posts = Post::orderBy('id', 'DESC')->paginate(3);
         $comments = Comment::where('approuved', true)->get();
         return view('pages.blog', compact('navs', 'contacts', 'placeholders', 'logo', 'footers', 'newsletters', 'categories', 'searches', 'tags', 'posts', 'comments'));
     }

@@ -5,7 +5,7 @@
     <!-- Post item -->
     <div class="post-item">
         <div class="post-thumbnail">
-            <img src="{{asset('img/'.$item->src)}}" alt="">
+            <img height="300" width="750" src="{{asset('img/blog/'.$item->src)}}" alt="">
             <div class="post-date">
                 @if ($item->created_at == NULL)
                     <h2>03</h2>

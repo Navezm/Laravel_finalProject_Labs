@@ -1,39 +1,35 @@
-<div class="jumbotron mb-0">
-    <div class="row">
-        <div class="col-6">
-            <h1 class="display-4">{{$post->title}}</h1>
-            <p class="lead">Author: {{$post->authors->name}} {{$post->authors->surname}}</p>
-            <p class="lead">
-                @if ($post->created_at == NULL)
-                    <span>Date: 03 Nov 2017</span>
-                @else
-                    <span>Date: {{$post->created_at->format('d M Y')}}</span> 
-                @endif
-            </p>
-            <p class="lead text-capitalize">tags: 
-                @foreach ($post->tags as $item)
-                    {{$item->name}},
-                    @if ($loop->last)
-                        {{$item->name}}
-                    @endif
+<div style="margin-top: 2%;" class="container mb-0">
+    <h1 style="margin-bottom: 1%;">Edit a post</h1>
+    <form class="pb-3" action="/post/{{$edit->id}}" method="POST" enctype="multipart/form-data">
+        @csrf
+        <div class="form-group">
+            <label>Title</label>
+            <input type="text" class="form-control" name="title" value="{{$edit->title}}">
+        </div>
+        <div class="form-group">
+            <label>Category</label>
+            <select class="form-control" name="category_id" id="">
+                @foreach ($categories as $item)
+                    <option value="{{$item->id}}" {{$item->id == $edit->category_id ? 'selected' : ''}}>{{$item->name}}</option>
                 @endforeach
-            </p>
-            <p class="lead">Comments: {{$nbrComment}}</p>
+            </select>
         </div>
-        <div class="col-6">
-            <img class="shadow" src="{{asset('img/'.$post->src)}}" alt="">
+        <div class="form-group">
+            <label>Tags</label> <br>
+            @foreach ($tags as $item)
+                <input type="checkbox" name="tag[]" value="{{$item->id}}" {{in_array($item->id, $edit->tags) ? "checked" : ''}}>
+                <label class="text-capitalize" for="">{{$item->name}}</label> <br>
+            @endforeach
         </div>
-    </div>
-    <hr class="my-4">
-    @foreach ($paragraphs as $item)
-        <p>{{$item}}</p>
-    @endforeach
-    <div class="d-flex">
-        <a class="btn btn-success btn-lg" href="postEdit/{{$post->id}}" role="button">Edit</a>
-        <form action="/post/{{$post->id}}" method="POST">
-            @csrf
-            @method('DELETE')
-            <button class="btn btn-danger btn-lg ml-3" type="submit">Delete</button>
-        </form>
-    </div>
+        <div class="form-group">
+            <label>Content</label>
+            <textarea class="form-control" name="content" id="" cols="30" rows="10">{{$edit->content}}</textarea>
+            <small>If you wish to split your text in paragraph just put a "/" between them</small>
+        </div>
+        <div class="form-group">
+            <label>Image</label>
+            <input type="file" class="form-control" name="src">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
 </div>

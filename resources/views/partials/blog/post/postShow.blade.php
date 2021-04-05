@@ -1,5 +1,5 @@
 <div class="post-thumbnail">
-    <img src="{{asset('img/'.$post->src)}}" alt="">
+    <img height="300" width="750" src="{{asset('img/blog/'.$post->src)}}" alt="">
     <div class="post-date">
         @if ($post->created_at == NULL)
             <h2>03</h2>
