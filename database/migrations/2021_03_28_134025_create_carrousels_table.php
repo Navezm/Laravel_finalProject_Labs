@@ -17,6 +17,7 @@ class CreateCarrouselsTable extends Migration
             $table->id();
             $table->string('src');
             $table->string('paragraph');
+            $table->integer('main');
             $table->timestamps();
         });
     }

@@ -1,4 +1,4 @@
-<div style="margin-top: 2%;" class="container">
+<div style="margin-top: 2%;" class="container shadow p-3">
     <h1 style="margin-bottom: 1%;">New post</h1>
     <form style="margin-bottom: 50px;" action="/post" method="POST" enctype="multipart/form-data">
         @csrf

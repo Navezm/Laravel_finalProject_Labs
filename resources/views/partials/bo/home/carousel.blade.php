@@ -18,21 +18,28 @@
             <th scope="col">Picture</th>
             <th scope="col"></th>
             <th scope="col"></th>
+            <th scope="col"></th>
         </tr>
         </thead>
         <tbody>
-        @foreach ($carrousels->where('id', '!=', 1) as $item)
+        @foreach ($carrousels as $item)
             <tr>
                 <td><img height="100" src="{{asset('img/'.$item->src)}}" alt=""></td>
                 <td>
-                <a class="btn btn-success" href="/carousel/{{$item->id}}/edit">Edit</a>
+                    <a class="btn btn-success" href="/carousel/{{$item->id}}/edit">Edit</a>
                 </td>
                 <td>
-                <form action="/carousel/{{$item->id}}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button class="btn btn-danger" type="submit">Delete</button>
-                </form>
+                    <form action="/carousel/{{$item->id}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="/carouselMain/{{$item->id}}" method="POST">
+                        @csrf
+                        <button class="btn btn-warning" type="submit">Main img</button>
+                    </form>
                 </td>
             </tr>
         @endforeach

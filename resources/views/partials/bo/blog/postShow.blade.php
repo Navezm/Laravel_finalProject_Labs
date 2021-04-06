@@ -36,32 +36,34 @@
 </div>
 
 {{-- Comments --}}
-<h5 style="margin: 1% 0.5% 1% 0.5%;">Comments Linked</h5>
-<table class="table mb-0">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">User</th>
-        <th scope="col">Email</th>
-        <th scope="col">Content</th>
-        <th scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
-      @foreach ($comments as $item)
+<div class="container">
+    <h5 style="margin: 1% 0.5% 1% 0.5%;">Post Comments</h5>
+    <table class="table mb-0 border">
+        <thead>
         <tr>
-            <th scope="row">{{$item->id}}</th>
-            <td>{{$item->name}}</td>
-            <td>{{$item->email}}</td>
-            <td>{{$item->content}}</td>
-            <td>
-              <form action="/comments/{{$item->id}}" method="POST">
-                @csrf
-                @method('DELETE')
-                <button class="btn btn-danger" type="submit">Delete</button>
-              </form>
-            </td>
+            <th scope="col">#</th>
+            <th scope="col">User</th>
+            <th scope="col">Email</th>
+            <th scope="col">Content</th>
+            <th scope="col"></th>
         </tr>
-      @endforeach
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+        @foreach ($comments as $item)
+            <tr>
+                <th scope="row">{{$item->id}}</th>
+                <td>{{$item->name}}</td>
+                <td>{{$item->email}}</td>
+                <td>{{$item->content}}</td>
+                <td>
+                <form action="/comments/{{$item->id}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger" type="submit">Delete</button>
+                </form>
+                </td>
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
+</div>

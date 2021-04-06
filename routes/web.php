@@ -57,7 +57,7 @@ Route::get('/', function () {
     $introductions = Introduction::first();
     $contacts = Contact::first();
     $placeholders = Placeholder::first();
-    $carrousels = Carrousel::all();
+    $carrousels = Carrousel::orderBy('main', 'DESC')->get();
     $stands = Stand::first();
     $newsletters = Newsletter::first();
     $services = Services::first();
@@ -82,6 +82,7 @@ Route::post('commentsValidate/{id}', [CommentController::class,'commentsValidate
 Route::post('usersPending/{id}', [UserController::class,'approuved']);
 Route::get('/usersEditBasic/{id}', [UserController::class,'editBasic']);
 Route::get('/postEdit/{id}', [PostController::class,'editPost']);
+Route::post('carouselMain/{id}', [CarrouselController::class,'main']);
 
 // Route Resource
 Route::resource('services', ServicesController::class);

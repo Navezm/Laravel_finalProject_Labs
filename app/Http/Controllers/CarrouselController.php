@@ -16,7 +16,7 @@ class CarrouselController extends Controller
      */
     public function index()
     {
-        $carrousels = Carrousel::all();
+        $carrousels = Carrousel::orderBy('main', 'DESC')->get();
         $logo = Logo::first();
         return view('pages.bo.home.carousel', compact('carrousels', 'logo'));
     }
@@ -43,7 +43,21 @@ class CarrouselController extends Controller
         $newEntry->paragraph = $request->paragraph;
         $newEntry->src = $request->file('src')->hashName();
         $request->file('src')->storePublicly('img/', 'public');
+        $newEntry->main = 0;
         $newEntry->save();
+        return redirect()->back();
+    }
+
+    public function main($id)
+    {
+        $all = Carrousel::all();
+        foreach ($all as $item) {
+            $item->main = 0;
+            $item->save();
+        }
+        $updateEntry = Carrousel::find($id);
+        $updateEntry->main = 1;
+        $updateEntry->save();
         return redirect()->back();
     }
 
