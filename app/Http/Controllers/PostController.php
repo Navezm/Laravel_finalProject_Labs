@@ -133,10 +133,11 @@ class PostController extends Controller
             $updateEntry->src = $request->file('src')->hashName();
         }
         $updateEntry->save();
+        $updateEntry->tags()->detach();
         foreach ($request->tag as $item) {
             $updateEntry->tags()->attach($item, ['post_id' => $updateEntry->id]);
         }
-        return redirect('post');
+        return redirect('post/'.$updateEntry->id.'/edit');
     }
 
     /**

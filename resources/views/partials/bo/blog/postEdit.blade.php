@@ -2,6 +2,7 @@
     <h1 style="margin-bottom: 1%;">Edit a post</h1>
     <form class="pb-3" action="/post/{{$edit->id}}" method="POST" enctype="multipart/form-data">
         @csrf
+        @method('PUT')
         <div class="form-group">
             <label>Title</label>
             <input type="text" class="form-control" name="title" value="{{$edit->title}}">
@@ -16,8 +17,9 @@
         </div>
         <div class="form-group">
             <label>Tags</label> <br>
+            {{-- {{dd($edit->tags->pluck('id'))}} --}}
             @foreach ($tags as $item)
-                <input type="checkbox" name="tag[]" value="{{$item->id}}" {{in_array($item->id, $edit->tags) ? "checked" : ''}}>
+                <input type="checkbox" name="tag[]" value="{{$item->id}}" {{in_array($item->id, $edit->tags->pluck('id')->toArray()) ? "checked" : ''}}>
                 <label class="text-capitalize" for="">{{$item->name}}</label> <br>
             @endforeach
         </div>

@@ -12,10 +12,7 @@
             </p>
             <p class="lead text-capitalize">tags: 
                 @foreach ($post->tags as $item)
-                    {{$item->name}},
-                    @if ($loop->last)
-                        {{$item->name}}
-                    @endif
+                    <span class="p-1 bg-info rounded">{{$item->name}}</span>
                 @endforeach
             </p>
             <p class="lead">Comments: {{$nbrComment}}</p>
@@ -37,3 +34,34 @@
         </form>
     </div>
 </div>
+
+{{-- Comments --}}
+<h5 style="margin: 1% 0.5% 1% 0.5%;">Comments Linked</h5>
+<table class="table mb-0">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">User</th>
+        <th scope="col">Email</th>
+        <th scope="col">Content</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach ($comments as $item)
+        <tr>
+            <th scope="row">{{$item->id}}</th>
+            <td>{{$item->name}}</td>
+            <td>{{$item->email}}</td>
+            <td>{{$item->content}}</td>
+            <td>
+              <form action="/comments/{{$item->id}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-danger" type="submit">Delete</button>
+              </form>
+            </td>
+        </tr>
+      @endforeach
+    </tbody>
+</table>

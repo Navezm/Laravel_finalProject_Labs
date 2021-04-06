@@ -5,6 +5,7 @@
         <th scope="col">#</th>
         <th scope="col">User</th>
         <th scope="col">Email</th>
+        <th scope="col">Post Name</th>
         <th scope="col">Content</th>
         <th scope="col"></th>
         <th scope="col"></th>
@@ -16,6 +17,7 @@
             <th scope="row">{{$item->id}}</th>
             <td>{{$item->name}}</td>
             <td>{{$item->email}}</td>
+            <td>{{$item->posts->title}}</td>
             <td>{{$item->content}}</td>
             <td>
               <form action="/commentsValidate/{{$item->id}}" method="POST">
