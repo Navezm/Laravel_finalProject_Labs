@@ -6,6 +6,7 @@ use App\Models\Logo;
 use App\Models\Testimonial;
 use App\Models\Witness;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class TestimonialController extends Controller
 {
@@ -18,8 +19,10 @@ class TestimonialController extends Controller
     {
         $logo = Logo::first();
         $testimonials = Testimonial::first();
+        $testi = Str::of($testimonials->title)->replace('(', '<span>');
+        $titleTesti = Str::of($testi)->replace(')', '</span>'); 
         $witnesses = Witness::all();
-        return view('pages.bo.home.testimonials',compact('logo', 'witnesses', 'testimonials'));
+        return view('pages.bo.home.testimonials',compact('logo', 'witnesses', 'testimonials', 'titleTesti'));
     }
 
     /**

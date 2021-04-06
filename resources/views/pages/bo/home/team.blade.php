@@ -1,11 +1,6 @@
-@extends('adminlte::page')
-
-@section('title', 'AdminLTE')
-
-@section('content_header')
-    <h1 class="m-0 text-dark"></h1>
-@stop
+@extends('template.third')
 
 @section('content')
-
+    @include('partials.home.team')
+    @include('partials.bo.home.teamEdit')
 @stop

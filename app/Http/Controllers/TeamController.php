@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Logo;
 use App\Models\Team;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class TeamController extends Controller
 {
@@ -14,7 +17,12 @@ class TeamController extends Controller
      */
     public function index()
     {
-        //
+        $logo = Logo::first();
+        $teams = Team::first();
+        $team = Str::of($teams->title)->replace('(', '<span>');
+        $titleTeam = Str::of($team)->replace(')', '</span>');
+        $users = User::where('approuved', true)->get();
+        return view('pages.bo.home.team',compact('teams', 'titleTeam', 'users', 'logo'));
     }
 
     /**
@@ -69,7 +77,10 @@ class TeamController extends Controller
      */
     public function update(Request $request, Team $team)
     {
-        //
+        $updateEntry = $team;
+        $updateEntry->title = $request->title;
+        $updateEntry->save();
+        return redirect()->back();
     }
 
     /**

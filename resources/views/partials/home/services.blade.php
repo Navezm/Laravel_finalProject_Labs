@@ -2,7 +2,7 @@
 <div class="services-section spad">
     <div class="container">
         <div class="section-title dark">
-            <h2>{{$services->title}}</h2>
+            <h2>{!! $titleService !!}</h2>
         </div>
         <div class="row">
             @foreach ($resources->random(9) as $item)

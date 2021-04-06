@@ -3,7 +3,7 @@
     <div class="overlay"></div>
     <div class="container">
         <div class="section-title">
-            <h2>{{$phones->title}}</h2>
+            <h2>{!! $title2 !!}</h2>
         </div>
         <div class="row">
             <!-- feature item -->

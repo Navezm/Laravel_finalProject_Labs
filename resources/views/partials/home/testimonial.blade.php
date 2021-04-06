@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-4">
                 <div class="section-title left">
-                    <h2>{{$testimonials->title}}</h2>
+                    <h2>{!! $titleTesti !!}</h2>
                 </div>
                 <div class="owl-carousel" id="testimonial-slide">
                     @foreach ($witnesses as $item)

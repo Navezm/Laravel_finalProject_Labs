@@ -5,6 +5,7 @@
         @method('PUT')
         <label for="">Title</label>
         <input class="form-control" type="text" name="title" value="{{$testimonials->title}}">
+        <small>Put between paranthesis the part of the title you want in green</small>
         <br>
         <label for="">Span</label>
         <input class="form-control" type="text" name="span" value="{{$testimonials->span}}">

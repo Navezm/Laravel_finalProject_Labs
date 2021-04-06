@@ -69,7 +69,10 @@ class PhoneController extends Controller
      */
     public function update(Request $request, Phone $phone)
     {
-        //
+        $updateEntry = $phone;
+        $updateEntry->title = $request->title;
+        $updateEntry->save();
+        return redirect()->back();
     }
 
     /**

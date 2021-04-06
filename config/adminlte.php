@@ -262,6 +262,11 @@ return [
                     'url' => '/servicesBo'
                 ],
                 [
+                    'text' => 'Team',
+                    'icon' => 'fas fa-circle',
+                    'url' => '/team'
+                ],
+                [
                     'text' => 'Stand out',
                     'icon' => 'fas fa-circle',
                     'url' => '/standOut'

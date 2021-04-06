@@ -14,6 +14,7 @@ use App\Models\Post;
 use App\Models\Resource;
 use App\Models\Services;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ServicesController extends Controller
 {
@@ -31,20 +32,29 @@ class ServicesController extends Controller
         $logo = Logo::first();
         $footers = Footer::first();
         $services = Services::first();
-        $resources = Resource::paginate(9);
+        $title1 = Str::of($services->title)->replace('(', '<span>');
+        $title = Str::of($title1)->replace(')', '</span>');
+        $resources = Resource::orderBy('id', 'DESC')->paginate(9);
         $phones = Phone::first();
+        $title0 = Str::of($phones->title)->replace('(', '<span>');
+        $title2 = Str::of($title0)->replace(')', '</span>');
         $newsletters = Newsletter::first();
         $lastServices = Resource::orderBy('id', 'DESC')->get()->take(6);
         $lastPost = Post::orderBy('id', 'DESC')->get()->take(3);
 
-        return view('pages.services', compact('navs', 'emailSubjects', 'contacts', 'placeholders', 'logo', 'footers', 'services', 'resources', 'lastPost', 'newsletters', 'phones', 'lastServices'));
+        return view('pages.services', compact('navs','title2', 'title', 'emailSubjects', 'contacts', 'placeholders', 'logo', 'footers', 'services', 'resources', 'lastPost', 'newsletters', 'phones', 'lastServices'));
     }
 
     public function backoffice()
     {
         $logo = Logo::first();
         $services = Services::first();
-        return view('pages.bo.home.services',compact('logo', 'services'));
+        $title1 = Str::of($services->title)->replace('(', '<span>');
+        $title = Str::of($title1)->replace(')', '</span>');
+        $phones = Phone::first();
+        $title0 = Str::of($phones->title)->replace('(', '<span>');
+        $title2 = Str::of($title0)->replace(')', '</span>');
+        return view('pages.bo.home.services',compact('logo', 'services', 'title', 'title2', 'phones'));
     }
 
     /**

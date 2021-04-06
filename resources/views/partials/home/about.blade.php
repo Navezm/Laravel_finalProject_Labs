@@ -28,7 +28,7 @@
     <div class="about-contant">
         <div class="container">
             <div class="section-title">
-                <h2>{{$introductions->title}}<span></span></h2>
+                <h2>{!! $titleIntro !!}</h2>
             </div>
             <div class="row">
                 <div class="col-md-6">

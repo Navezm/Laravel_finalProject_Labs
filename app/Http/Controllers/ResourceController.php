@@ -19,7 +19,7 @@ class ResourceController extends Controller
     {
         $logo = Logo::first();
         $services = Services::first();
-        $resources = Resource::paginate(9);
+        $resources = Resource::orderBy('id', 'DESC')->paginate(9);
         $resourcesAll = Resource::all();
         $icons = Icon::all();
         return view('pages.bo.services.service',compact('logo', 'resources', 'services', 'icons', 'resourcesAll'));

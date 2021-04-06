@@ -3,7 +3,7 @@
     <div class="overlay"></div>
     <div class="container">
         <div class="section-title">
-            <h2>{{$teams->title}}</h2>
+            <h2>{!! $titleTeam !!}</h2>
         </div>
         <div class="row">
             @foreach ($users->where('job_id', '!=', 1)->random(2) as $item)

@@ -6,6 +6,7 @@ use App\Models\Introduction;
 use App\Models\Logo;
 use App\Models\Resource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class IntroductionController extends Controller
 {
@@ -18,8 +19,10 @@ class IntroductionController extends Controller
     {
         $logo = Logo::first();
         $introductions = Introduction::first();
+        $title1 = Str::of($introductions->title)->replace('(', '<span>');
+        $title = Str::of($title1)->replace(')', '</span>');
         $resources = Resource::all();
-        return view('pages.bo.home.introduction',compact('logo', 'introductions', 'resources'));
+        return view('pages.bo.home.introduction',compact('logo', 'introductions', 'resources', 'title'));
     }
 
     /**
@@ -75,6 +78,7 @@ class IntroductionController extends Controller
     public function update(Request $request, Introduction $introduction)
     {
         $updateEntry = $introduction;
+        $updateEntry->title = $request->title;
         $updateEntry->p1 = $request->p1;
         $updateEntry->p2 = $request->p2;
         $updateEntry->url = $request->url;

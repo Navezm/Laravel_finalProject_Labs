@@ -11,6 +11,7 @@ use App\Http\Controllers\IntroductionController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\LogoController;
 use App\Http\Controllers\MapController;
+use App\Http\Controllers\PhoneController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\RoleController;
@@ -39,6 +40,7 @@ use App\Models\User;
 use App\Models\Witness;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,21 +57,29 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     $resources = Resource::all();
     $introductions = Introduction::first();
+    $intro = Str::of($introductions->title)->replace('(', '<span>');
+    $titleIntro = Str::of($intro)->replace(')', '</span>');
     $contacts = Contact::first();
     $placeholders = Placeholder::first();
     $carrousels = Carrousel::orderBy('main', 'DESC')->get();
     $stands = Stand::first();
     $newsletters = Newsletter::first();
     $services = Services::first();
+    $serv = Str::of($services->title)->replace('(', '<span>');
+    $titleService = Str::of($serv)->replace(')', '</span>');
     $users = User::where('approuved', true)->get();
     $testimonials = Testimonial::first();
+    $testi = Str::of($testimonials->title)->replace('(', '<span>');
+    $titleTesti = Str::of($testi)->replace(')', '</span>'); 
     $witnesses = Witness::all();
     $footers = Footer::first();
     $logo = Logo::first();
     $navs = Nav::all();
     $teams = Team::first();
+    $team = Str::of($teams->title)->replace('(', '<span>');
+    $titleTeam = Str::of($team)->replace(')', '</span>'); 
     $emailSubjects = EmailSubject::all();
-    return view('welcome',compact('resources', 'introductions', 'contacts', 'placeholders', 'carrousels', 'stands', 'newsletters', 'services', 'users', 'testimonials', 'witnesses', 'footers', 'logo', 'navs', 'teams', 'emailSubjects'));
+    return view('welcome',compact('resources', 'introductions', 'contacts', 'placeholders', 'carrousels', 'stands', 'newsletters', 'services', 'users', 'testimonials', 'witnesses', 'footers', 'logo', 'navs', 'teams', 'emailSubjects', 'titleIntro', 'titleService', 'titleTesti', 'titleTeam'));
 });
 
 // Route Function
@@ -106,6 +116,7 @@ Route::resource('roles', RoleController::class);
 Route::resource('subscribers', SubscriberController::class);
 Route::resource('users', UserController::class);
 Route::resource('subjects', EmailSubjectController::class);
+Route::resource('phones', PhoneController::class);
 
 // Facade Auth + AdminLTE
 Auth::routes();
