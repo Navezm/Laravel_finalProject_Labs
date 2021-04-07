@@ -25,14 +25,16 @@
     @foreach ($paragraphs as $item)
         <p>{{$item}}</p>
     @endforeach
-    <div class="d-flex">
-        <a class="btn btn-success btn-lg" href="/postEdit/{{$post->id}}" role="button">Edit</a>
-        <form action="/post/{{$post->id}}" method="POST">
-            @csrf
-            @method('DELETE')
-            <button class="btn btn-danger btn-lg ml-3" type="submit">Delete</button>
-        </form>
-    </div>
+    @can('editPost', $post)
+        <div class="d-flex">
+            <a class="btn btn-success btn-lg" href="/postEdit/{{$post->id}}" role="button">Edit</a>
+            <form action="/post/{{$post->id}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-danger btn-lg ml-3" type="submit">Delete</button>
+            </form>
+        </div>
+    @endcan
 </div>
 
 {{-- Comments --}}
@@ -56,11 +58,13 @@
                 <td>{{$item->email}}</td>
                 <td>{{$item->content}}</td>
                 <td>
-                <form action="/comments/{{$item->id}}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button class="btn btn-danger" type="submit">Delete</button>
-                </form>
+                    @can('isWebmaster')
+                        <form action="/comments/{{$item->id}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger" type="submit">Delete</button>
+                        </form>
+                    @endcan
                 </td>
             </tr>
         @endforeach

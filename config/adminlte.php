@@ -235,11 +235,13 @@ return [
             'can'  => 'manage-blog',
         ],
         [ 
-            'header' => 'CONTENT CHANGES', 
+            'header' => 'CONTENT CHANGES',
+            'can' => 'isWebmaster' 
         ],
         [
             'text'        => 'Home',
             'icon'        => 'fas fa-home',
+            'can' => 'isWebmaster',
             'submenu' => [
                 [
                     'text' => 'Carousel',
@@ -276,37 +278,44 @@ return [
         [
             'text'        => 'Service',
             'icon'        => 'fas fa-database',
-            'url' => '/resources'
+            'url' => '/resources',
+            'can' => 'isWebmaster'
         ],
         [
             'text'        => 'Blog',
             'icon'        => 'fas fa-edit',
+            'can' => ['isWebmaster', 'isRedactor'],
             'submenu' => [
                 [
                     'text' => 'Article',
                     'url' => '/post',
-                    'icon' => 'fas fa-circle'
+                    'icon' => 'fas fa-circle',
+                    'can' => 'isRedactor'
                 ],
                 [
                     'text' => 'Tags',
                     'url' => '/tags',
-                    'icon' => 'fas fa-circle'
+                    'icon' => 'fas fa-circle',
+                    'can' => 'isWebmaster'
                 ],
                 [
                     'text' => 'Categories',
                     'url' => '/categories',
-                    'icon' => 'fas fa-circle'
+                    'icon' => 'fas fa-circle',
+                    'can' => 'isWebmaster'
                 ],
                 [
                     'text' => 'Pending comments',
                     'url' => '/comments',
-                    'icon' => 'fas fa-circle'
+                    'icon' => 'fas fa-circle',
+                    'can' => 'isWebmaster'
                 ],
             ]
         ],
         [
             'text'        => 'Contact',
             'icon'        => 'fas fa-address-card',
+            'can' => 'isWebmaster',
             'submenu' => [
                 [
                     'text' => 'Contact',
@@ -323,12 +332,14 @@ return [
         [
             'text'        => 'Logo',
             'icon'        => 'fas fa-ring',
-            'url' => '/logo'
+            'url' => '/logo',
+            'can' => 'isWebmaster'
         ],
         [
             'text'        => 'Footer',
             'icon'        => 'fas fa-shoe-prints',
-            'url' => '/footer'
+            'url' => '/footer',
+            'can' => 'isWebmaster'
         ],
         [
             'header' => 'account_settings'
@@ -337,6 +348,7 @@ return [
             'text' => 'Pending users',
             'url'  => '/users/create',
             'icon' => 'fas fa-user-plus',
+            'can' => 'isWebmaster'
         ],
         [
             'text' => 'Users',
@@ -347,16 +359,19 @@ return [
             'text' => 'Jobs',
             'url'  => '/jobs',
             'icon' => 'fas fa-briefcase',
+            'can' => 'isWebmaster'
         ],
         [
             'text' => 'Role',
             'url'  => '/roles',
             'icon' => 'fas fa-user-tag',
+            'can' => 'isWebmaster'
         ],
         [
             'text' => 'Subscriber',
             'url'  => '/subscribers',
             'icon' => 'fas fa-award',
+            'can' => 'isWebmaster'
         ],
         ['header' => ' '],
         [

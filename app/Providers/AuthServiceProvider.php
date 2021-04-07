@@ -25,6 +25,11 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
+        
+        Gate::define('isAdmin', function(User $user)
+        {
+            return $user->role_id == 1;
+        });
 
         Gate::define('isWebmaster', function(User $user){
             if ($user->role_id == 1 || $user->role_id == 2) {
@@ -32,11 +37,25 @@ class AuthServiceProvider extends ServiceProvider
             }
         });
 
-        Gate::define('isAdmin', function(User $user)
+        Gate::define('isRedactor', function(User $user)
         {
-            return $user->role_id == 1;
+            if ($user->role_id == 1 || $user->role_id == 2 || $user->role_id == 3) {
+                return true;
+            }
         });
 
-        
+        Gate::define('isMember', function(User $user)
+        {
+            if ($user->role_id == 1 || $user->role_id == 2 || $user->role_id == 3 || $user->role_id == 4) {
+                return true;
+            }
+        });
+
+        Gate::define('editPost', function(User $user, $post)
+        {
+            if ($user->role_id == 1 || $user->role_id == 2 || $post->author_id == $user->id) {
+                return true;
+            }
+        });
     }
 }

@@ -19,13 +19,17 @@
               <td>
                 <a class="btn btn-info" href="/post/{{$item->id}}/edit">Details</a>
               </td>
-              <td>
-                <form action="/post/{{$item->id}}" method="POST">
-                  @csrf
-                  @method('DELETE')
-                  <button class="btn btn-danger" type="submit">Delete</button>
-                </form>
-              </td>
+              @can('editPost', $item)
+                <td>
+                  <form action="/post/{{$item->id}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger" type="submit">Delete</button>
+                  </form>
+                </td>
+              @else
+                <td></td>
+              @endcan
           </tr>
         @endforeach
       </tbody>

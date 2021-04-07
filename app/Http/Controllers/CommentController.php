@@ -55,7 +55,7 @@ class CommentController extends Controller
             $newEntry->picture_id = 1;
         }
         $newEntry->content = $request->content;
-        $newEntry->post_id = $postId[4];
+        $newEntry->post_id = end($postId);
         $newEntry->approuved = false;
         $newEntry->save();
         return redirect()->back();
