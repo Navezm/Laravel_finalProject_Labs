@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('isWebmaster')->only(['create', 'approuved', 'edit']);
+    }
+
     /**
      * Display a listing of the resource.
      *

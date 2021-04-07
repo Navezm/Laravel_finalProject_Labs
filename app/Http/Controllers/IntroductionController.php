@@ -10,6 +10,11 @@ use Illuminate\Support\Str;
 
 class IntroductionController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth', 'isWebmaster']);
+    }
+    
     /**
      * Display a listing of the resource.
      *

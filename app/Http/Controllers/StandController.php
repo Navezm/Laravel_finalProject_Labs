@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class StandController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth', 'isWebmaster']);
+    }
+    
     /**
      * Display a listing of the resource.
      *

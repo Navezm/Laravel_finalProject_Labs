@@ -18,6 +18,11 @@ use Illuminate\Support\Str;
 
 class ServicesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth', 'isWebmaster'])->only(['backoffice','update']);
+    }
+
     /**
      * Display a listing of the resource.
      *

@@ -65,7 +65,7 @@ class UserSeeder extends Seeder
                 'surname' => 'Trafalgar D.',
                 'email' => 't@t',
                 'job_id' => '3',
-                'role_id' => '3',
+                'role_id' => '4',
                 'photo_id' => 6,
                 'description' => 'Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.',
                 'password' => Hash::make('test-test'),

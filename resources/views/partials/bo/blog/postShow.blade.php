@@ -36,7 +36,7 @@
 </div>
 
 {{-- Comments --}}
-<div class="container">
+<div class="container pb-3">
     <h5 style="margin: 1% 0.5% 1% 0.5%;">Post Comments</h5>
     <table class="table mb-0 border">
         <thead>

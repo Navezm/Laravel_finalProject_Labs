@@ -24,6 +24,9 @@ class JobSeeder extends Seeder
             [
                 'name' => 'Digital Designer'
             ],
+            [
+                'name' => 'Developer'
+            ],
         ]);
     }
 }
