@@ -22,10 +22,9 @@ class PostController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
         $this->middleware('isAuthor')->only(['update', 'editPost']);
         $this->middleware('isWebmaster')->only(['destroy']);
-        $this->middleware('isRedactor')->only(['index', 'store', 'show', 'edit']);
+        $this->middleware('isRedactor')->only(['index', 'store', 'edit']);
     }
 
     /**
