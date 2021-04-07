@@ -16,7 +16,7 @@ class TestimonialSeeder extends Seeder
     {
         DB::table('testimonials')->insert([
             [
-                'title' => 'What our clients say',
+                'title' => 'What our (clients) say',
                 'span' => '‘​‌‘',
             ],
         ]);

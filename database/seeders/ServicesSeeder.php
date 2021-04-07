@@ -16,7 +16,7 @@ class ServicesSeeder extends Seeder
     {
         DB::table('services')->insert([
             [
-                'title' => 'Get in the Lab and see the services',
+                'title' => '(Get in the Lab) and see the services',
                 'btn' => 'Browse',
                 'btnLink' => '/services',
             ],

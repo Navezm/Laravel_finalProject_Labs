@@ -3,7 +3,7 @@
 @section('title', 'AdminLTE')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">Posts</h1>
+    <h1 class="m-0 text-dark">Create a new Post & Posts list</h1>
 @stop
 
 @section('content')

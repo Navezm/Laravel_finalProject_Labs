@@ -16,7 +16,7 @@ class StandSeeder extends Seeder
     {
         DB::table('stands')->insert([
             [
-                'title' => 'Are you ready to stand out?',
+                'title' => 'Are you (ready) to stand out?',
                 'paragraph' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est.'
             ],
         ]);

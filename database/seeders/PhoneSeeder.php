@@ -16,7 +16,7 @@ class PhoneSeeder extends Seeder
     {
         DB::table('phones')->insert([
             [
-                'title' => 'Get in the Lab and  discover the world',
+                'title' => 'Get in (the Lab) and  discover the world',
                 'src' => 'device.png',
                 'btn' => 'Browse',
                 'btnLink' => '#cardSection',

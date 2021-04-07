@@ -1,6 +1,6 @@
-<div class="mt-3">
+<div class="mt-3 pb-3">
   <h3>Posts List</h3>
-  <table class="table mb-0">
+  <table class="table mb-0 border">
       <thead>
         <tr>
           <th scope="col">#</th>
