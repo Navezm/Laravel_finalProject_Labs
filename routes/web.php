@@ -23,6 +23,7 @@ use App\Http\Controllers\TagController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WitnessController;
 use App\Models\Carrousel;
 use App\Models\Contact;
 use App\Models\EmailSubject;
@@ -95,6 +96,11 @@ Route::get('/usersEditBasic/{id}', [UserController::class,'editBasic']);
 Route::get('/postEdit/{id}', [PostController::class,'editPost']);
 Route::post('carouselMain/{id}', [CarrouselController::class,'main']);
 
+// Route Error Url
+Route::fallback(function () {
+    return redirect()->back();
+});
+
 // Route Resource
 Route::resource('services', ServicesController::class);
 Route::resource('blog', BlogController::class);
@@ -119,6 +125,7 @@ Route::resource('users', UserController::class);
 Route::resource('subjects', EmailSubjectController::class);
 Route::resource('phones', PhoneController::class);
 Route::resource('newsletter', NewsletterController::class);
+Route::resource('witness', WitnessController::class);
 
 // Facade Auth + AdminLTE
 Auth::routes();

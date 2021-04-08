@@ -14,8 +14,23 @@
                 <p class="con-item">{{$contacts->email}}</p>
             </div>
             <!-- contact form -->
-            <div class="col-md-6 col-pull">
-                <form class="form-class" id="con_form">
+            <div class="col-md-6 col-pull" id="formQueries">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                @if ($message = Session::get('success'))
+                    <div class="alert alert-success alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                            <strong>{{ $message }}</strong>
+                    </div>
+                @endif
+                <form class="form-class" action="/witness" method="POST" id="con_form">
                     @csrf
                     <div class="row">
                         <div class="col-sm-6">

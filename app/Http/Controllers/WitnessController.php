@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\FormSend;
+use App\Models\EmailSubject;
 use App\Models\Witness;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\URL;
 
 class WitnessController extends Controller
 {
@@ -35,7 +39,30 @@ class WitnessController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $subjects = EmailSubject::all();
+
+        if (count($subjects) > 1) {
+            if ($subjects->find($request->subject_id)) {
+                // Finding subject then compact it
+                $subject = EmailSubject::find($request->subject_id);
+                Mail::to('navez.martin@gmail.com')->send(new FormSend([$request, $subject]));
+        
+                // Return + msg
+                $route = URL::previous();
+                return redirect($route.'#formQueries')->with('success', 'Email send!');
+            } else {
+                // Return + msg
+                $route = URL::previous();
+                return redirect($route.'#formQueries')->with('error', 'Please do not modify the form!');
+            }
+        } else {
+            dd($request);
+            Mail::to('navez.martin@gmail.com')->send(new FormSend([$request]));
+
+            // Return + msg
+            $route = URL::previous();
+            return redirect($route.'#formQueries')->with('success', 'Email send!');
+        }
     }
 
     /**

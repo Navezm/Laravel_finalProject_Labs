@@ -11,6 +11,7 @@ class FormSend extends Mailable
 {
     use Queueable, SerializesModels;
     public $infos;
+    public $subjectTitle;
 
     /**
      * Create a new message instance.
@@ -19,7 +20,14 @@ class FormSend extends Mailable
      */
     public function __construct($data)
     {
-        $this->infos = $data;
+        // dd(count($data));
+        if (count($data) > 1) {
+            $this->infos = $data[0];
+            $this->subjectTitle = $data[1];
+        } else {
+            $this->infos = $data;
+            // dd($this->infos);
+        }
     }
 
     /**
@@ -29,6 +37,6 @@ class FormSend extends Mailable
      */
     public function build()
     {
-        return $this->from($this->infos->email)->view('template.templateForm')->subject($this->infos->subject)->with(['name' => $this->infos->name, 'email' => $this->infos->email, 'subject' => $this->infos->subject, 'content' => $this->infos->content]);
+        return $this->from($this->infos->email)->view('template.templateForm')->subject($this->subjectTitle != NULL ? $this->subjectTitle->subject : $this->infos->subject_id)->with(['name' => $this->infos->name, 'email' => $this->infos->email, 'subject' => $this->infos->subject, 'content' => $this->infos->content]);
     }
 }
