@@ -41,27 +41,18 @@ class WitnessController extends Controller
     {
         $subjects = EmailSubject::all();
 
-        if (count($subjects) > 1) {
-            if ($subjects->find($request->subject_id)) {
-                // Finding subject then compact it
-                $subject = EmailSubject::find($request->subject_id);
-                Mail::to('navez.martin@gmail.com')->send(new FormSend([$request, $subject]));
-        
-                // Return + msg
-                $route = URL::previous();
-                return redirect($route.'#formQueries')->with('success', 'Email send!');
-            } else {
-                // Return + msg
-                $route = URL::previous();
-                return redirect($route.'#formQueries')->with('error', 'Please do not modify the form!');
-            }
-        } else {
-            dd($request);
-            Mail::to('navez.martin@gmail.com')->send(new FormSend([$request]));
-
+        if ($subjects->find($request->subject_id)) {
+            // Finding subject then compact it
+            $subject = EmailSubject::find($request->subject_id);
+            Mail::to('navez.martin@gmail.com')->send(new FormSend([$request, $subject]));
+    
             // Return + msg
             $route = URL::previous();
             return redirect($route.'#formQueries')->with('success', 'Email send!');
+        } else {
+            // Return + msg
+            $route = URL::previous();
+            return redirect($route.'#formQueries')->with('error', 'Please do not modify the form!');
         }
     }
 

@@ -15,13 +15,10 @@
             </div>
             <!-- contact form -->
             <div class="col-md-6 col-pull" id="formQueries">
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
+                @if ($message = Session::get('error'))
+                    <div class="alert alert-danger alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                            <strong>{{ $message }}</strong>
                     </div>
                 @endif
                 @if ($message = Session::get('success'))
@@ -40,15 +37,11 @@
                             <input type="text" name="email" placeholder="{{$placeholders->email}}">
                         </div>
                         <div class="col-sm-12">
-                            @if (count($emailSubjects) != 1)
-                                <select name="subject_id" id="">
-                                    @foreach ($emailSubjects as $item)
-                                        <option value="{{$item->id}}">{{$item->subject}}</option>
-                                    @endforeach
-                                </select>
-                            @else
-                                <input type="text" name="subject_id" disabled="disabled" value="{{$emailSubjects[0]->subject}}">
-                            @endif
+                            <select name="subject_id" id="">
+                                @foreach ($emailSubjects as $item)
+                                    <option value="{{$item->id}}">{{$item->subject}}</option>
+                                @endforeach
+                            </select>
                             <textarea name="message" placeholder="{{$placeholders->message}}"></textarea>
                             <button type="submit" class="site-btn">{{$placeholders->btn}}</button>
                         </div>
