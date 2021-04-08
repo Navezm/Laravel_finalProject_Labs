@@ -11,6 +11,7 @@ use App\Http\Controllers\IntroductionController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\LogoController;
 use App\Http\Controllers\MapController;
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\PhoneController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ResourceController;
@@ -117,6 +118,7 @@ Route::resource('subscribers', SubscriberController::class);
 Route::resource('users', UserController::class);
 Route::resource('subjects', EmailSubjectController::class);
 Route::resource('phones', PhoneController::class);
+Route::resource('newsletter', NewsletterController::class);
 
 // Facade Auth + AdminLTE
 Auth::routes();

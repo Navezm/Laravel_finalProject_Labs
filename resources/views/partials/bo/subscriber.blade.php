@@ -1,5 +1,5 @@
 <h4>Number of subscribers : {{count($subscribers)}}</h4>
-<table class="table">
+<table class="table mb-0">
     <thead>
       <tr>
         <th scope="col">#</th>

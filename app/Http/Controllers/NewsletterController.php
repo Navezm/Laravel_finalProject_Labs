@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NewsletterSend;
 use App\Models\Newsletter;
+use App\Models\Subscriber;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\URL;
 
 class NewsletterController extends Controller
 {
@@ -35,7 +39,20 @@ class NewsletterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'email' => 'required|email|unique:subscribers,email'
+        ]);
+
+        $newEntry = new Subscriber;
+        $newEntry->email = $request->email;
+        $newEntry->save();
+
+        // Mail sending
+        Mail::to($request->email)->send(new NewsletterSend($request));
+
+        // Return + msg
+        $route = URL::previous();
+        return redirect($route.'#newsletterId')->with('success', 'Thanks for the subscribe to our newsletter!');
     }
 
     /**

@@ -1,5 +1,5 @@
 <!-- Promotion section -->
-<div class="promotion-section">
+<div class="promotion-section" id="newsletterId">
     <div class="container">
         <div class="row">
             <div class="col-md-7">
@@ -8,11 +8,26 @@
             </div>
             <div class="col-md-5">
                 <div class="promo-btn-area">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    @if ($message = Session::get('success'))
+                        <div class="alert alert-success alert-block">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                                <strong>{{ $message }}</strong>
+                        </div>
+                    @endif
                     <h2 class="text-center">{{$newsletters->title}}</h2>
                     <!-- newsletter form -->
-                    <form class="nl-form d-flex" method="POST">
+                    <form class="nl-form d-flex" action="/newsletter" method="POST">
                         @csrf
-                        <input type="text" placeholder="{{$newsletters->placeholder}}">
+                        <input type="text" name="email" placeholder="{{$newsletters->placeholder}}">
                         <button type="submit" class="site-btn btn-2">{{$newsletters->btn}}</button>
                     </form>
                 </div>
