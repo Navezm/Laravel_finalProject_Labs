@@ -8,16 +8,16 @@
             </div>
             <div class="col-md-5">
                 <div class="promo-btn-area">
-                    @if ($errors->any())
+                    @if ($errors->newsletter->any())
                         <div class="alert alert-danger">
                             <ul>
-                                @foreach ($errors->all() as $error)
+                                @foreach ($errors->newsletter->all() as $error)
                                     <li>{{ $error }}</li>
                                 @endforeach
                             </ul>
                         </div>
                     @endif
-                    @if ($message = Session::get('success'))
+                    @if ($message = Session::get('successNewsletter'))
                         <div class="alert alert-success alert-block">
                         <button type="button" class="close" data-dismiss="alert">×</button>
                                 <strong>{{ $message }}</strong>

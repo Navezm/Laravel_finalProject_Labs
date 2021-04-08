@@ -51,7 +51,7 @@ class CommentController extends Controller
             $request->validate([
                 'content' => 'required',
                 'name' => 'required',
-                'email' => 'required'
+                'email' => 'required|email'
             ]);
         }
 

@@ -39,7 +39,7 @@ class WitnessController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $request->validateWithBag('witness',[
             'name' => 'required',
             'email' => 'required|email',
             'message' => 'required'
@@ -60,6 +60,9 @@ class WitnessController extends Controller
             $route = URL::previous();
             return redirect($route.'#formQueries')->with('error', 'Please do not modify the form!');
         }
+
+        $route = URL::previous();
+        return redirect($route.'#formQueries');
     }
 
     /**

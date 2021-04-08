@@ -1,4 +1,13 @@
 <div class="container">
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form style="margin: 3% 0 3% 0;" action="/testimonials" method="POST" enctype="multipart/form-data">
         @csrf
         <label for="">Name</label>

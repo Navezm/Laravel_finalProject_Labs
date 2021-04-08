@@ -39,7 +39,7 @@ class NewsletterController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $request->validateWithBag('newsletter',[
             'email' => 'required|email|unique:subscribers,email'
         ]);
 
@@ -52,7 +52,7 @@ class NewsletterController extends Controller
 
         // Return + msg
         $route = URL::previous();
-        return redirect($route.'#newsletterId')->with('success', 'Thanks for the subscribe to our newsletter!');
+        return redirect($route.'#newsletterId')->with('successNewsletter', 'Thanks for the subscribe to our newsletter!');
     }
 
     /**

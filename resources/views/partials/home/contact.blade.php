@@ -15,10 +15,10 @@
             </div>
             <!-- contact form -->
             <div class="col-md-6 col-pull" id="formQueries">
-                @if ($errors->any())
+                @if ($errors->witness->any())
                     <div class="alert alert-danger">
                         <ul>
-                            @foreach ($errors->all() as $error)
+                            @foreach ($errors->witness->all() as $error)
                                 <li>{{ $error }}</li>
                             @endforeach
                         </ul>

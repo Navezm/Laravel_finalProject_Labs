@@ -48,7 +48,13 @@ class TestimonialController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
+        $request->validate([
+            'name' => 'required',
+            'surname' => 'required',
+            'content' => 'required',
+            'job' => 'required'
+        ]);
+
         $newEntry = new Witness;
         $newEntry->name = $request->name;
         $newEntry->surname = $request->surname;

@@ -19,7 +19,7 @@
                         <input type="text" name="name" placeholder="{{$placeholders->name}}" value="{{old('name')}}">
                     </div>
                     <div class="col-sm-6">
-                        <input type="email" name="email" placeholder="{{$placeholders->email}}" value="{{old('email')}}">
+                        <input type="text" name="email" placeholder="{{$placeholders->email}}" value="{{old('email')}}">
                     </div>
                 @endif
                 <div class="col-sm-12">
