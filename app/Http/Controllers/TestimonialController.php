@@ -26,7 +26,7 @@ class TestimonialController extends Controller
         $testimonials = Testimonial::first();
         $testi = Str::of($testimonials->title)->replace('(', '<span>');
         $titleTesti = Str::of($testi)->replace(')', '</span>'); 
-        $witnesses = Witness::all();
+        $witnesses = Witness::orderBy('id', 'DESC')->get()->take(6);
         return view('pages.bo.home.testimonials',compact('logo', 'witnesses', 'testimonials', 'titleTesti'));
     }
 
@@ -37,7 +37,7 @@ class TestimonialController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.bo.home.testimonialNew');
     }
 
     /**
@@ -48,7 +48,16 @@ class TestimonialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        $newEntry = new Witness;
+        $newEntry->name = $request->name;
+        $newEntry->surname = $request->surname;
+        $newEntry->content = $request->content;
+        $newEntry->job = $request->job;
+        $newEntry->src = $request->file('src')->hashName();
+        $request->file('src')->storePublicly('img/avatar/', 'public');
+        $newEntry->save();
+        return redirect()->back();
     }
 
     /**

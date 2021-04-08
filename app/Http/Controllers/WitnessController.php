@@ -39,6 +39,12 @@ class WitnessController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'message' => 'required'
+        ]);
+
         $subjects = EmailSubject::all();
 
         if ($subjects->find($request->subject_id)) {

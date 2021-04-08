@@ -254,6 +254,11 @@ return [
                     'url' => '/testimonials'
                 ],
                 [
+                    'text' => 'New testimonial',
+                    'icon' => 'fas fa-circle',
+                    'url' => '/testimonials/create'
+                ],
+                [
                     'text' => 'Services',
                     'icon' => 'fas fa-circle',
                     'url' => '/servicesBo'

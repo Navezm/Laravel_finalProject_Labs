@@ -19,37 +19,37 @@ class WitnessSeeder extends Seeder
                 'name' => 'Smith',
                 'surname' => 'Michael',
                 'job' => 'CEO Company',
-                'src' => 'avatar/01.jpg',
+                'src' => '01.jpg',
                 'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.',
             ],[
                 'name' => 'Smith',
                 'surname' => 'Michael',
                 'job' => 'CEO Company',
-                'src' => 'avatar/02.jpg',
+                'src' => '02.jpg',
                 'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.',
             ],[
                 'name' => 'Smith',
                 'surname' => 'Michael',
                 'job' => 'CEO Company',
-                'src' => 'avatar/01.jpg',
+                'src' => '01.jpg',
                 'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.',
             ],[
                 'name' => 'Smith',
                 'surname' => 'Michael',
                 'job' => 'CEO Company',
-                'src' => 'avatar/02.jpg',
+                'src' => '02.jpg',
                 'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.',
             ],[
                 'name' => 'Smith',
                 'surname' => 'Michael',
                 'job' => 'CEO Company',
-                'src' => 'avatar/01.jpg',
+                'src' => '01.jpg',
                 'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.',
             ],[
                 'name' => 'Smith',
                 'surname' => 'Michael',
                 'job' => 'CEO Company',
-                'src' => 'avatar/02.jpg',
+                'src' => '02.jpg',
                 'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.',
             ]
         ]);

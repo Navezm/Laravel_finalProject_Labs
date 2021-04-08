@@ -73,7 +73,7 @@ Route::get('/', function () {
     $testimonials = Testimonial::first();
     $testi = Str::of($testimonials->title)->replace('(', '<span>');
     $titleTesti = Str::of($testi)->replace(')', '</span>'); 
-    $witnesses = Witness::all();
+    $witnesses = Witness::orderBy('id', 'DESC')->get()->take(6);
     $footers = Footer::first();
     $logo = Logo::first();
     $navs = Nav::all();
