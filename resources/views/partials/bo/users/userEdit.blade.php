@@ -1,19 +1,28 @@
 <div style="margin-top: 2%;" class="container">
     <h1 style="margin-bottom: 1%;">Edit the user</h1>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form style="margin-bottom: 50px;" action="/users/{{$user->id}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="form-group">
           <label>Name</label>
-          <input type="text" class="form-control" name="name" value="{{$user->name}}">
+          <input type="text" class="form-control" name="name" value="{{old('name') ? old('name') : $user->name}}">
         </div>
         <div class="form-group">
             <label>Surname</label>
-            <input type="text" class="form-control" name="surname" value="{{$user->surname}}">
+            <input type="text" class="form-control" name="surname" value="{{old('surname') ? old('surname') : $user->surname}}">
         </div>
         <div class="form-group">
             <label>E-mail</label>
-            <input type="text" class="form-control" name="email" value="{{$user->email}}">
+            <input type="text" class="form-control" name="email" value="{{old('email') ? old('email') : $user->email}}">
         </div>
         <div class="form-group">
             <label>Job</label>
@@ -29,7 +38,7 @@
         </div>
         <div class="form-group">
             <label>Description</label>
-            <input type="text" class="form-control" name="description" value="{{$user->description}}">
+            <input type="text" class="form-control" name="description" value="{{old('description') ? old('description') : $user->description}}">
         </div>
         {{-- If admin show these inputs --}}
         @if (Auth::user()->role_id == 1)

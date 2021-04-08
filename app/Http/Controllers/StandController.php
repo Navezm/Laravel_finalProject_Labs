@@ -79,6 +79,11 @@ class StandController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'title' => 'required',
+            'paragraph' => 'required'
+        ]);
+
         $updateEntry = Stand::find($id);
         $updateEntry->title = $request->title;
         $updateEntry->paragraph = $request->paragraph;

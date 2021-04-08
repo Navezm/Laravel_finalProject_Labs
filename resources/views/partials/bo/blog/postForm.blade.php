@@ -1,10 +1,19 @@
 <div style="margin-top: 2%;" class="container shadow p-3">
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <h1 style="margin-bottom: 1%;">New post</h1>
     <form style="margin-bottom: 50px;" action="/post" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label>Title</label>
-            <input type="text" class="form-control" name="title">
+            <input type="text" class="form-control" name="title" value="{{old('title')}}">
         </div>
         <div class="form-group">
             <label>Category</label>
@@ -23,7 +32,7 @@
         </div>
         <div class="form-group">
             <label>Content</label>
-            <textarea class="form-control" name="content" id="" cols="30" rows="10"></textarea>
+            <textarea class="form-control" name="content" id="" cols="30" rows="10">{{old('content')}}</textarea>
             <small>If you wish to split your text in paragraph just put a "/" between them</small>
         </div>
         <div class="form-group">

@@ -41,6 +41,10 @@ class EmailSubjectController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'subject' => 'required'
+        ]);
+
         $newEntry = new EmailSubject;
         $newEntry->subject = $request->subject;
         $newEntry->save();
@@ -80,6 +84,10 @@ class EmailSubjectController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'subject' => 'required'
+        ]);
+        
         $updateEntry = EmailSubject::find($id);
         $updateEntry->subject = $request->subject;
         $updateEntry->save();

@@ -77,6 +77,12 @@ class FooterController extends Controller
      */
     public function update(Request $request, Footer $footer)
     {
+        $request->validate([
+            'span1' => 'required',
+            'span2' => 'required',
+            'url' => 'required'
+        ]);
+
         $updateEntry = $footer;
         $updateEntry->span1 = $request->span1;
         $updateEntry->span2 = $request->span2;

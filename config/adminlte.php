@@ -225,11 +225,6 @@ return [
 
     'menu' => [
         [
-            'text' => 'search',
-            'search' => true,
-            'topnav' => true,
-        ],
-        [
             'text' => 'blog',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
@@ -241,7 +236,7 @@ return [
         [
             'text'        => 'Home',
             'icon'        => 'fas fa-home',
-            'can' => 'isWebmaster',
+            'can'         => 'isWebmaster',
             'submenu' => [
                 [
                     'text' => 'Carousel',

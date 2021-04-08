@@ -96,6 +96,14 @@ class ContactController extends Controller
      */
     public function update(Request $request, Contact $contact)
     {
+        $request->validate([
+            'paragraph' => 'required',
+            'address1' => 'required',
+            'address2' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+        ]);
+
         $updateEntry = $contact;
         $updateEntry->paragraph = $request->paragraph;
         $updateEntry->address1 = $request->address1;

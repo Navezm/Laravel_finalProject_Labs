@@ -43,6 +43,18 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
+        if (Auth::check()) {
+            $request->validate([
+                'content' => 'required',
+            ]);
+        } else {
+            $request->validate([
+                'content' => 'required',
+                'name' => 'required',
+                'email' => 'required'
+            ]);
+        }
+
         $postId = explode('/', url()->previous());
         $newEntry = new Comment;
         if (Auth::check()) {

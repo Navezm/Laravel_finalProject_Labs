@@ -82,6 +82,11 @@ class TestimonialController extends Controller
      */
     public function update(Request $request, Testimonial $testimonial)
     {
+        $request->validate([
+            'title' => 'required',
+            'span' => 'required'
+        ]);
+
         $updateEntry = $testimonial;
         $updateEntry->title = $request->title;
         $updateEntry->span = $request->span;

@@ -1,9 +1,18 @@
 <div class="container">
     <h1 style="margin: 1% 0 1% 0;">Create a new slide</h1>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form style="margin: 3% 0 3% 0;" action="/carousel" method="POST" enctype="multipart/form-data">
         @csrf
         <label for="">New Paragraph</label>
-        <input class="form-control" type="text" name="paragraph">
+        <input class="form-control" type="text" name="paragraph" value="{{old('paragraph')}}">
         <br>
         <label for="">New Picture</label>
         <input class="form-control" type="file" name="src">

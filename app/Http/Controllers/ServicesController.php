@@ -114,6 +114,11 @@ class ServicesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validateWithBag('services',[
+            'title' => 'required',
+            'btn' => 'required'
+        ]);
+
         $updateEntry = Services::find($id);
         $updateEntry->title = $request->title;
         $updateEntry->btn = $request->btn;

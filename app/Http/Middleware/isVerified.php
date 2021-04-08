@@ -17,10 +17,14 @@ class isVerified
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->approuved == true) {
-            return $next($request);
+        if (Auth::check()) {
+            if (Auth::user()->approuved == true) {
+                return $next($request);
+            } else {
+                return redirect()->back();
+            }
         } else {
-            return redirect()->back();
+            return redirect('login');
         }
     }
 }

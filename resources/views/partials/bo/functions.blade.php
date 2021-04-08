@@ -1,7 +1,16 @@
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <form style="margin: 3% 0 3% 0;" action="/jobs" method="POST">
   @csrf
   <label for="">New Job</label>
-  <input class="form-control" type="text" name="name">
+  <input class="form-control" type="text" name="name" value="{{old('name')}}">
   <br>
   <button class="btn btn-info" type="submit">Create</button>
 </form>

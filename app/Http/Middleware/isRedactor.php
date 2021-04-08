@@ -17,10 +17,14 @@ class isRedactor
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->role_id == 1 || Auth::user()->role_id == 2 || Auth::user()->role_id == 3) {
-            return $next($request);
+        if (Auth::check()) {
+            if (Auth::user()->role_id == 1 || Auth::user()->role_id == 2 || Auth::user()->role_id == 3) {
+                return $next($request);
+            } else {
+                return redirect()->back();
+            }
         } else {
-            return redirect()->back();
+            return redirect('login');
         }
     }
 }

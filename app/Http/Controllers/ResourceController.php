@@ -47,6 +47,12 @@ class ResourceController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+            'icon_id' => 'required'
+        ]);
+
         $newEntry = new Resource;
         $newEntry->title = $request->title;
         $newEntry->content = $request->content;
@@ -88,6 +94,12 @@ class ResourceController extends Controller
      */
     public function update(Request $request, Resource $resource)
     {
+        $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+            'icon_id' => 'required'
+        ]);
+        
         $updateEntry = $resource;
         $updateEntry->title = $request->title;
         $updateEntry->content = $request->content;

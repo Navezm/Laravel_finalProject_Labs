@@ -41,6 +41,10 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required'
+        ]);
+
         $newEntry = new Job;
         $newEntry->name = $request->name;
         $newEntry->save();
@@ -78,6 +82,10 @@ class JobController extends Controller
      */
     public function update(Request $request, Job $job)
     {
+        $request->validate([
+            'name' => 'required'
+        ]);
+        
         $updateEntry = $job;
         $updateEntry->name = $request->name;
         $updateEntry->save();

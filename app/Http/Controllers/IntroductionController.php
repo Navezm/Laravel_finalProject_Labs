@@ -82,6 +82,13 @@ class IntroductionController extends Controller
      */
     public function update(Request $request, Introduction $introduction)
     {
+        $request->validate([
+            'title' => 'required',
+            'p1' => 'required',
+            'p2' => 'required',
+            'url' => 'required'
+        ]);
+
         $updateEntry = $introduction;
         $updateEntry->title = $request->title;
         $updateEntry->p1 = $request->p1;

@@ -82,6 +82,10 @@ class TeamController extends Controller
      */
     public function update(Request $request, Team $team)
     {
+        $request->validate([
+            'title' => 'required'
+        ]);
+
         $updateEntry = $team;
         $updateEntry->title = $request->title;
         $updateEntry->save();

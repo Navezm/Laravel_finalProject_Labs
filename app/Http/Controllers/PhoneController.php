@@ -73,6 +73,10 @@ class PhoneController extends Controller
      */
     public function update(Request $request, Phone $phone)
     {
+        $request->validateWithBag('phone',[
+            'title' => 'required'
+        ]);
+
         $updateEntry = $phone;
         $updateEntry->title = $request->title;
         $updateEntry->save();

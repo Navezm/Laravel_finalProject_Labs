@@ -44,6 +44,11 @@ class CarrouselController extends Controller
      */
     public function store(Request $request)
     {
+        $validation = $request->validate([
+            'paragraph' => 'required',
+            'src' => 'required'
+        ]);
+
         $newEntry = new Carrousel;
         $newEntry->paragraph = $request->paragraph;
         $newEntry->src = $request->file('src')->hashName();
@@ -99,6 +104,10 @@ class CarrouselController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validation = $request->validate([
+            'paragraph' => 'required',
+        ]);
+
         $updateEntry = Carrousel::find($id);
         $updateEntry->paragraph = $request->paragraph;
         if ($request->file('src') != NULL) {

@@ -19,17 +19,21 @@ class isAuthor
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Str::contains($request->route()->uri(), 'postEdit')) {
-            $articleId = $request->route()->parameters();
-            $article = Post::find($articleId);
-            $articleAuthorId = $article[0]->author_id; 
+        if (Auth::check()) {
+            if (Str::contains($request->route()->uri(), 'postEdit')) {
+                $articleId = $request->route()->parameters();
+                $article = Post::find($articleId);
+                $articleAuthorId = $article[0]->author_id; 
+            } else {
+                $articleAuthorId = $request->route()->parameters()['post']->author_id;
+            }
+            if (Auth::user()->role_id == 1 || Auth::user()->role_id == 2 || Auth::id() == $articleAuthorId) {
+                return $next($request);
+            } else {
+                return redirect()->back();
+            }
         } else {
-            $articleAuthorId = $request->route()->parameters()['post']->author_id;
-        }
-        if (Auth::user()->role_id == 1 || Auth::user()->role_id == 2 || Auth::id() == $articleAuthorId) {
-            return $next($request);
-        } else {
-            return redirect()->back();
+            return redirect('login');
         }
     }
 }
