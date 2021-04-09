@@ -13,7 +13,7 @@
 <div class="post-content">
     <h2 class="post-title">{{$post->title}}</h2>
     <div class="post-meta">
-        <a href="#authorId">{{$post->authors->name}} {{$post->authors->surname}}</a>
+        <a href="/postsFilter/{{$post->category_id}}">{{$post->categories->name}}</a>
             @foreach ($post->tags as $item)
                 @if ($loop->iteration == 1)
                     <a class="text-capitalize" href="/tagsFilter/{{$item->id}}">{{$item->name}}</a>
